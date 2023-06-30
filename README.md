@@ -17,3 +17,4 @@ The purpose of this is to create a playable tic tac toe game.
 ## Bonus Features To Consider
 
 - Selection of style options
+- Score tracker (wins, ties, losses)
