@@ -13,6 +13,7 @@ The purpose of this is to create a playable tic tac toe game.
 - Winner display
 - Clear board button
 - Options menu (goals)
+- Turn indicator
 
 ## Bonus Features To Consider
 
