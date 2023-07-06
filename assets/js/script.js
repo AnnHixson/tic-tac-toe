@@ -8,6 +8,9 @@ const a3 = document.getElementById('a3');
 const b3 = document.getElementById('b3');
 const c3 = document.getElementById('c3');
 
+const vsCpu = document.getElementById('vs-cpu');
+const clearBoardBtn = document.getElementById('clear-board');
+
 let turnCounter = 1;
 
 function makeAMove() {
@@ -16,6 +19,7 @@ function makeAMove() {
     checkWin();
 };
 
+// This function checks if the game is complete (win or tie)
 function checkWin() {
     if ((a1.textContent === 'x' && b1.textContent === 'x' && c1.textContent === 'x') || (a1.textContent === 'x' && b2.textContent === 'x' && c3.textContent === 'x') || (a1.textContent === 'x' && a2.textContent === 'x' && a3.textContent === 'x') || (b1.textContent === 'x' && b2.textContent === 'x' && b3.textContent === 'x') || (c1.textContent === 'x' && c2.textContent === 'x' && c3.textContent === 'x') || (c1.textContent === 'x' && b2.textContent === 'x' && a3.textContent === 'x') || (a2.textContent === 'x' && b2.textContent === 'x' && c2.textContent === 'x') || (a3.textContent === 'x' && b3.textContent === 'x' && c3.textContent === 'x')) {
         console.log('X Wins!');
@@ -26,6 +30,28 @@ function checkWin() {
     } else {
         console.log('The Game Continues!');
     }
+}
+
+// This function resets the board to its starting state
+function clearBoard(event) {
+    event.preventDefault();
+
+    a1.textContent = '';
+    b1.textContent = '';
+    c1.textContent = '';
+    a2.textContent = '';
+    b2.textContent = '';
+    c2.textContent = '';
+    a3.textContent = '';
+    b3.textContent = '';
+    c3.textContent = '';
+
+    turnCounter = 1;
+}
+
+function cpuPlays(event) {
+    event.preventDefault();
+
 }
 
 function selectA1(event) {
@@ -488,3 +514,6 @@ c2.addEventListener('click', selectC2);
 a3.addEventListener('click', selectA3);
 b3.addEventListener('click', selectB3);
 c3.addEventListener('click', selectC3);
+
+clearBoardBtn.addEventListener('click', clearBoard);
+vsCpu.addEventListener('click', cpuPlays);
