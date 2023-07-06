@@ -13,7 +13,20 @@ let turnCounter = 1;
 function makeAMove() {
     turnCounter++;
     // console.log(turnCounter);
+    checkWin();
 };
+
+function checkWin() {
+    if ((a1.textContent === 'x' && b1.textContent === 'x' && c1.textContent === 'x') || (a1.textContent === 'x' && b2.textContent === 'x' && c3.textContent === 'x') || (a1.textContent === 'x' && a2.textContent === 'x' && a3.textContent === 'x') || (b1.textContent === 'x' && b2.textContent === 'x' && b3.textContent === 'x') || (c1.textContent === 'x' && c2.textContent === 'x' && c3.textContent === 'x') || (c1.textContent === 'x' && b2.textContent === 'x' && a3.textContent === 'x') || (a2.textContent === 'x' && b2.textContent === 'x' && c2.textContent === 'x') || (a3.textContent === 'x' && b3.textContent === 'x' && c3.textContent === 'x')) {
+        console.log('X Wins!');
+    } else if ((a1.textContent === 'o' && b1.textContent === 'o' && c1.textContent === 'o') || (a1.textContent === 'o' && b2.textContent === 'o' && c3.textContent === 'o') || (a1.textContent === 'o' && a2.textContent === 'o' && a3.textContent === 'o') || (b1.textContent === 'o' && b2.textContent === 'o' && b3.textContent === 'o') || (c1.textContent === 'o' && c2.textContent === 'o' && c3.textContent === 'o') || (c1.textContent === 'o' && b2.textContent === 'o' && a3.textContent === 'o') || (a2.textContent === 'o' && b2.textContent === 'o' && c2.textContent === 'o') || (a3.textContent === 'o' && b3.textContent === 'o' && c3.textContent === 'o')) {
+        console.log('O Wins!');
+    } else if (a1.textContent !== '' && b1.textContent !== '' && c1.textContent !== '' && a2.textContent !== '' && b2.textContent !== '' && c2.textContent !== '' && a3.textContent !== '' && b3.textContent !== '' && c3.textContent !== '') {
+        console.log('It\'s a Tie!');
+    } else {
+        console.log('The Game Continues!');
+    }
+}
 
 function selectA1(event) {
     event.preventDefault();
