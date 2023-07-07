@@ -119,9 +119,63 @@ function cpuPlaysX() {
             }
         }
     } else if (turnCounter === 5) {
-
+        if ((a1.textContent === 'x') && (c3.textContent === '')) {
+            c3.textContent = 'x';
+            makeAMove();
+        } else if ((((a1.textContent === 'x') && (c3.textContent === 'o')) || ((c1.textContent === 'x') && (a3.textContent === 'o')) || ((a3.textContent === 'x') && (c1.textContent === 'o')) || ((c3.textContent === 'x') && (a1.textContent === 'o'))) && ((b1.textContent === 'o') || (a2.textContent === 'o') || (c2.textContent === 'o') || (b3.textContent === 'o'))) {
+            if (a1.textContent === 'x') {
+                if ((b1.textContent === 'o') || (b3.textContent === 'o')) {
+                    a3.textContent = 'x';
+                    makeAMove();
+                } else if ((a2.textContent === 'o') || (c2.textContent === 'o')) {
+                    c1.textContent = 'x';
+                    makeAMove();
+                }
+            } else if (c1.textContent === 'x') {
+                if ((b1.textContent === 'o') || (b3.textContent === 'o')) {
+                    c3.textContent = 'x';
+                    makeAMove();
+                } else if ((a2.textContent === 'o') || (c2.textContent === 'o')) {
+                    a1.textContent = 'x';
+                    makeAMove();
+                }
+            } else if (a3.textContent === 'x') {
+                if ((b1.textContent === 'o') || (b3.textContent === 'o')) {
+                    a1.textContent = 'x';
+                    makeAMove();
+                } else if ((a2.textContent === 'o') || (c2.textContent === 'o')) {
+                    c3.textContent = 'x';
+                    makeAMove();
+                }
+            } else if (c3.textContent === 'x') {
+                if ((b1.textContent === 'o') || (b3.textContent === 'o')) {
+                    c1.textContent = 'x';
+                    makeAMove();
+                } else if ((a2.textContent === 'o') || (c2.textContent === 'o')) {
+                    a3.textContent = 'x';
+                    makeAMove();
+                }
+            }
+        }
+         else if ((b1.textContent === '') && (a2.textContent === '') && (c2.textContent === '') && (b3.textContent === '')) {
+            if ((a1.textContent === 'o') && (a3.textContent === 'o')) {
+                a2.textContent = 'x';
+                makeAMove();
+            } else if ((a1.textContent === 'o') && (c1.textContent === 'o')) {
+                b1.textContent = 'x';
+                makeAMove();
+            } else if ((a3.textContent === 'o') && (c3.textContent === 'o')) {
+                b3.textContent = 'x';
+                makeAMove();
+            } else if ((c1.textContent === 'o') && (c3.textContent === 'o')) {
+                c2.textContent = 'x';
+                makeAMove();
+            }
+         } 
     } else if (turnCounter === 7) {
+        // if ((a1.textContent === 'x') && (b2.textContent === 'x') && (a3.textContent === 'x')) {
 
+        // }
     } else if (turnCounter === 9) {
 
     };
