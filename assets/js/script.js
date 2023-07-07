@@ -8,10 +8,25 @@ const a3 = document.getElementById('a3');
 const b3 = document.getElementById('b3');
 const c3 = document.getElementById('c3');
 
-const vsCpu = document.getElementById('vs-cpu');
 const clearBoardBtn = document.getElementById('clear-board');
+const optionsBtn = document.getElementById('options');
+const optionsContent = document.getElementById('options-content');
+const vsCpu = document.getElementById('cpu-vs-multi-cpu');
+const vsMulti = document.getElementById('cpu-vs-multi-multi');
+const cpuOptions = document.getElementById('cpu-options');
+const cpuIsX = document.getElementById('cpu-x-or-o-x');
+const cpuIsO = document.getElementById('cpu-x-or-o-o');
+
+
+optionsContent.style.display = 'none';
+cpuOptions.style.display = 'none';
 
 let turnCounter = 1;
+
+let vsCPUSelected = false;
+let vsMultiSelected = false;
+let cpuIsXSelected = false;
+let cpuIsOSelected = false;
 
 function makeAMove() {
     turnCounter++;
@@ -49,10 +64,45 @@ function clearBoard(event) {
     turnCounter = 1;
 }
 
-function cpuPlays(event) {
+// This function displays (or hides) the game options
+function displayOptions(event) {
     event.preventDefault();
 
+    // console.log('vsCPU: ' + vsCPUSelected);
+    // console.log('vsMulti: ' + vsMultiSelected);
+    // console.log('cpuIsX: ' + cpuIsXSelected);
+    // console.log('cpuIsO: ' + cpuIsOSelected);
+    // console.log('----------');
+
+    if (optionsContent.style.display === 'none') {
+        optionsContent.style.display = 'block';
+    } else if (optionsContent.style.display === 'block') {
+        optionsContent.style.display = 'none';
+        cpuOptions.style.display = 'none';
+    }
 }
+
+
+
+// In Progress ...
+function cpuPlaysX() {
+    // console.log('CPU goes first');
+    if (turnCounter === 1) {
+        b2.textContent = 'x';
+        makeAMove();
+    }
+    if (turnCounter === 3) {
+        if ((b1.textContent === 'o') || (a2.textContent === 'o') || (c2.textContent === 'o') || (b3.textContent === 'o')) {
+            a1.textContent = 'x';
+            makeAMove();
+        }
+    }
+}
+function cpuPlaysO() {
+    // console.log('Player goes first');
+}
+
+
 
 function selectA1(event) {
     event.preventDefault();
@@ -101,6 +151,14 @@ function selectA1(event) {
         if (a1.textContent === '') {
             a1.textContent = 'x';
             makeAMove();
+        }
+    };
+
+    if (vsCPUSelected === true) {
+        if (cpuIsXSelected === true) {
+            cpuPlaysX();
+        } else if (cpuIsOSelected === true) {
+            cpuPlaysO();
         }
     };
 };
@@ -153,6 +211,14 @@ function selectB1(event) {
             makeAMove();
         }
     };
+
+    if (vsCPUSelected === true) {
+        if (cpuIsXSelected === true) {
+            cpuPlaysX();
+        } else if (cpuIsOSelected === true) {
+            cpuPlaysO();
+        }
+    };
 };
 function selectC1(event) {
     event.preventDefault();
@@ -201,6 +267,14 @@ function selectC1(event) {
         if (c1.textContent === '') {
             c1.textContent = 'x';
             makeAMove();
+        }
+    };
+
+    if (vsCPUSelected === true) {
+        if (cpuIsXSelected === true) {
+            cpuPlaysX();
+        } else if (cpuIsOSelected === true) {
+            cpuPlaysO();
         }
     };
 };
@@ -253,6 +327,14 @@ function selectA2(event) {
             makeAMove();
         }
     };
+
+    if (vsCPUSelected === true) {
+        if (cpuIsXSelected === true) {
+            cpuPlaysX();
+        } else if (cpuIsOSelected === true) {
+            cpuPlaysO();
+        }
+    };
 };
 function selectB2(event) {
     event.preventDefault();
@@ -301,6 +383,14 @@ function selectB2(event) {
         if (b2.textContent === '') {
             b2.textContent = 'x';
             makeAMove();
+        }
+    };
+
+    if (vsCPUSelected === true) {
+        if (cpuIsXSelected === true) {
+            cpuPlaysX();
+        } else if (cpuIsOSelected === true) {
+            cpuPlaysO();
         }
     };
 };
@@ -353,6 +443,14 @@ function selectC2(event) {
             makeAMove();
         }
     };
+
+    if (vsCPUSelected === true) {
+        if (cpuIsXSelected === true) {
+            cpuPlaysX();
+        } else if (cpuIsOSelected === true) {
+            cpuPlaysO();
+        }
+    };
 };
 function selectA3(event) {
     event.preventDefault();
@@ -401,6 +499,14 @@ function selectA3(event) {
         if (a3.textContent === '') {
             a3.textContent = 'x';
             makeAMove();
+        }
+    };
+
+    if (vsCPUSelected === true) {
+        if (cpuIsXSelected === true) {
+            cpuPlaysX();
+        } else if (cpuIsOSelected === true) {
+            cpuPlaysO();
         }
     };
 };
@@ -453,6 +559,14 @@ function selectB3(event) {
             makeAMove();
         }
     };
+
+    if (vsCPUSelected === true) {
+        if (cpuIsXSelected === true) {
+            cpuPlaysX();
+        } else if (cpuIsOSelected === true) {
+            cpuPlaysO();
+        }
+    };
 };
 function selectC3(event) {
     event.preventDefault();
@@ -503,7 +617,85 @@ function selectC3(event) {
             makeAMove();
         }
     };
+
+    if (vsCPUSelected === true) {
+        if (cpuIsXSelected === true) {
+            cpuPlaysX();
+        } else if (cpuIsOSelected === true) {
+            cpuPlaysO();
+        }
+    };
 };
+
+
+
+// In Progress ...
+function chooseCPU(event) {
+    event.preventDefault();
+
+    vsCPUSelected = true;
+    vsMultiSelected = false;
+    cpuIsXSelected = false;
+    cpuIsOSelected = false;
+
+    cpuOptions.style.display = 'block';
+
+    // console.log('vsCPU: ' + vsCPUSelected);
+    // console.log('vsMulti: ' + vsMultiSelected);
+    // console.log('cpuIsX: ' + cpuIsXSelected);
+    // console.log('cpuIsO: ' + cpuIsOSelected);
+    // console.log('----------');
+    
+}
+function chooseMulti(event) {
+    event.preventDefault();
+
+    vsCPUSelected = false;
+    vsMultiSelected = true;
+    cpuIsXSelected = false;
+    cpuIsOSelected = false;
+
+    cpuOptions.style.display = 'none';
+
+    // console.log('vsCPU: ' + vsCPUSelected);
+    // console.log('vsMulti: ' + vsMultiSelected);
+    // console.log('cpuIsX: ' + cpuIsXSelected);
+    // console.log('cpuIsO: ' + cpuIsOSelected);
+    // console.log('----------');
+}
+function chooseCpuX(event) {
+    event.preventDefault();
+
+    vsCPUSelected = true;
+    vsMultiSelected = false;
+    cpuIsXSelected = true;
+    cpuIsOSelected = false;
+    
+    cpuPlaysX();
+
+    // console.log('vsCPU: ' + vsCPUSelected);
+    // console.log('vsMulti: ' + vsMultiSelected);
+    // console.log('cpuIsX: ' + cpuIsXSelected);
+    // console.log('cpuIsO: ' + cpuIsOSelected);
+    // console.log('----------');
+}
+function chooseCpuO(event) {
+    event.preventDefault();
+
+    vsCPUSelected = true;
+    vsMultiSelected = false;
+    cpuIsXSelected = false;
+    cpuIsOSelected = true;
+
+    cpuPlaysO();
+
+    // console.log('vsCPU: ' + vsCPUSelected);
+    // console.log('vsMulti: ' + vsMultiSelected);
+    // console.log('cpuIsX: ' + cpuIsXSelected);
+    // console.log('cpuIsO: ' + cpuIsOSelected);
+    // console.log('----------');
+}
+
 
 a1.addEventListener('click', selectA1);
 b1.addEventListener('click', selectB1);
@@ -516,4 +708,8 @@ b3.addEventListener('click', selectB3);
 c3.addEventListener('click', selectC3);
 
 clearBoardBtn.addEventListener('click', clearBoard);
-vsCpu.addEventListener('click', cpuPlays);
+optionsBtn.addEventListener('click', displayOptions);
+vsCpu.addEventListener('click', chooseCPU);
+vsMulti.addEventListener('click', chooseMulti);
+cpuIsX.addEventListener('click', chooseCpuX);
+cpuIsO.addEventListener('click', chooseCpuO);
