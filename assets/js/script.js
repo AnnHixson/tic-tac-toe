@@ -1,3 +1,4 @@
+// Game Board
 const a1 = document.getElementById('a1');
 const b1 = document.getElementById('b1');
 const c1 = document.getElementById('c1');
@@ -8,6 +9,7 @@ const a3 = document.getElementById('a3');
 const b3 = document.getElementById('b3');
 const c3 = document.getElementById('c3');
 
+// Other Page Elements
 const clearBoardBtn = document.getElementById('clear-board');
 const optionsBtn = document.getElementById('options');
 const optionsContent = document.getElementById('options-content');
@@ -16,38 +18,39 @@ const vsMulti = document.getElementById('cpu-vs-multi-multi');
 const cpuOptions = document.getElementById('cpu-options');
 const cpuIsX = document.getElementById('cpu-x-or-o-x');
 const cpuIsO = document.getElementById('cpu-x-or-o-o');
+const winnerDisplay = document.getElementById('winner-display');
 
-
+// Initial Settings
 optionsContent.style.display = 'none';
 cpuOptions.style.display = 'none';
-
+winnerDisplay.style.display = 'none';
 let turnCounter = 1;
-
 let vsCPUSelected = false;
-let vsMultiSelected = false;
+let vsMultiSelected = true;
 let cpuIsXSelected = false;
 let cpuIsOSelected = false;
 
+// This function increases the turn counter and runs the checkWin function
 function makeAMove() {
     turnCounter++;
-    // console.log(turnCounter);
     checkWin();
 };
 
 // This function checks if the game is complete (win or tie)
 function checkWin() {
     if ((a1.textContent === 'x' && b1.textContent === 'x' && c1.textContent === 'x') || (a1.textContent === 'x' && b2.textContent === 'x' && c3.textContent === 'x') || (a1.textContent === 'x' && a2.textContent === 'x' && a3.textContent === 'x') || (b1.textContent === 'x' && b2.textContent === 'x' && b3.textContent === 'x') || (c1.textContent === 'x' && c2.textContent === 'x' && c3.textContent === 'x') || (c1.textContent === 'x' && b2.textContent === 'x' && a3.textContent === 'x') || (a2.textContent === 'x' && b2.textContent === 'x' && c2.textContent === 'x') || (a3.textContent === 'x' && b3.textContent === 'x' && c3.textContent === 'x')) {
-        console.log('X Wins!');
+        winnerDisplay.style.display = 'block';
+        winnerDisplay.textContent = 'X Wins!';
     } else if ((a1.textContent === 'o' && b1.textContent === 'o' && c1.textContent === 'o') || (a1.textContent === 'o' && b2.textContent === 'o' && c3.textContent === 'o') || (a1.textContent === 'o' && a2.textContent === 'o' && a3.textContent === 'o') || (b1.textContent === 'o' && b2.textContent === 'o' && b3.textContent === 'o') || (c1.textContent === 'o' && c2.textContent === 'o' && c3.textContent === 'o') || (c1.textContent === 'o' && b2.textContent === 'o' && a3.textContent === 'o') || (a2.textContent === 'o' && b2.textContent === 'o' && c2.textContent === 'o') || (a3.textContent === 'o' && b3.textContent === 'o' && c3.textContent === 'o')) {
-        console.log('O Wins!');
+        winnerDisplay.style.display = 'block';
+        winnerDisplay.textContent = 'O Wins!';
     } else if (a1.textContent !== '' && b1.textContent !== '' && c1.textContent !== '' && a2.textContent !== '' && b2.textContent !== '' && c2.textContent !== '' && a3.textContent !== '' && b3.textContent !== '' && c3.textContent !== '') {
-        console.log('It\'s a Tie!');
-    } else {
-        console.log('The Game Continues!');
-    }
-}
+        winnerDisplay.style.display = 'block';
+        winnerDisplay.textContent = 'It\'s a Tie!';
+    };
+};
 
-// This function resets the board to its starting state
+// This function resets the board to its initial settings
 function clearBoard(event) {
     event.preventDefault();
 
@@ -62,17 +65,23 @@ function clearBoard(event) {
     c3.textContent = '';
 
     turnCounter = 1;
-}
+
+    winnerDisplay.style.display = 'none';
+
+
+
+    // IMPORTANT: TO BE DEALT WITH
+    // CPU DOESN'T AUTO-PLAY TURN 1 AS 'X' AFTER HITTING CLEAR BOARD
+    console.log(vsCPUSelected);
+    console.log(vsMultiSelected);
+    console.log(cpuIsXSelected);
+    console.log(cpuIsOSelected);
+    // ... SHOULD 'CLEAR BOARD' BE 'PLAY AGAIN' WHEN 'VS CPU' IS SELECTED ???
+};
 
 // This function displays (or hides) the game options
 function displayOptions(event) {
     event.preventDefault();
-
-    // console.log('vsCPU: ' + vsCPUSelected);
-    // console.log('vsMulti: ' + vsMultiSelected);
-    // console.log('cpuIsX: ' + cpuIsXSelected);
-    // console.log('cpuIsO: ' + cpuIsOSelected);
-    // console.log('----------');
 
     if (optionsContent.style.display === 'none') {
         optionsContent.style.display = 'block';
@@ -80,30 +89,57 @@ function displayOptions(event) {
         optionsContent.style.display = 'none';
         cpuOptions.style.display = 'none';
     }
-}
+};
 
 
 
 // In Progress ...
+// These functions handle the CPU's turns
 function cpuPlaysX() {
-    // console.log('CPU goes first');
     if (turnCounter === 1) {
         b2.textContent = 'x';
         makeAMove();
-    }
-    if (turnCounter === 3) {
+    } else if (turnCounter === 3) {
         if ((b1.textContent === 'o') || (a2.textContent === 'o') || (c2.textContent === 'o') || (b3.textContent === 'o')) {
             a1.textContent = 'x';
             makeAMove();
+        } else if ((a1.textContent === 'o') || (c1.textContent === 'o') || (a3.textContent === 'o') || (c3.textContent === 'o')) {
+            if (a1.textContent === 'o') {
+                c3.textContent = 'x';
+                makeAMove();
+            } else if (c1.textContent === 'o') {
+                a3.textContent = 'x';
+                makeAMove();
+            } else if (a3.textContent === 'o') {
+                c1.textContent = 'x';
+                makeAMove(); 
+            } else if (c3.textContent === 'o') {
+                a1.textContent = 'x';
+                makeAMove();
+            }
         }
-    }
+    } else if (turnCounter === 5) {
+
+    } else if (turnCounter === 7) {
+
+    } else if (turnCounter === 9) {
+
+    };
 }
 function cpuPlaysO() {
-    // console.log('Player goes first');
+    if (turnCounter === 2) {
+
+    } else if (turnCounter === 4) {
+
+    } else if (turnCounter === 6) {
+        
+    } else if (turnCounter === 8) {
+        
+    };
 }
 
 
-
+// These functions set whether 'x' or 'o' will appear in the selected space and trigger the CPU's turn if 'VS CPU' is selected
 function selectA1(event) {
     event.preventDefault();
 
@@ -627,9 +663,7 @@ function selectC3(event) {
     };
 };
 
-
-
-// In Progress ...
+// These functions are used to determine which options have been selected
 function chooseCPU(event) {
     event.preventDefault();
 
@@ -638,14 +672,7 @@ function chooseCPU(event) {
     cpuIsXSelected = false;
     cpuIsOSelected = false;
 
-    cpuOptions.style.display = 'block';
-
-    // console.log('vsCPU: ' + vsCPUSelected);
-    // console.log('vsMulti: ' + vsMultiSelected);
-    // console.log('cpuIsX: ' + cpuIsXSelected);
-    // console.log('cpuIsO: ' + cpuIsOSelected);
-    // console.log('----------');
-    
+    cpuOptions.style.display = 'block';   
 }
 function chooseMulti(event) {
     event.preventDefault();
@@ -656,12 +683,6 @@ function chooseMulti(event) {
     cpuIsOSelected = false;
 
     cpuOptions.style.display = 'none';
-
-    // console.log('vsCPU: ' + vsCPUSelected);
-    // console.log('vsMulti: ' + vsMultiSelected);
-    // console.log('cpuIsX: ' + cpuIsXSelected);
-    // console.log('cpuIsO: ' + cpuIsOSelected);
-    // console.log('----------');
 }
 function chooseCpuX(event) {
     event.preventDefault();
@@ -672,12 +693,6 @@ function chooseCpuX(event) {
     cpuIsOSelected = false;
     
     cpuPlaysX();
-
-    // console.log('vsCPU: ' + vsCPUSelected);
-    // console.log('vsMulti: ' + vsMultiSelected);
-    // console.log('cpuIsX: ' + cpuIsXSelected);
-    // console.log('cpuIsO: ' + cpuIsOSelected);
-    // console.log('----------');
 }
 function chooseCpuO(event) {
     event.preventDefault();
@@ -688,15 +703,9 @@ function chooseCpuO(event) {
     cpuIsOSelected = true;
 
     cpuPlaysO();
-
-    // console.log('vsCPU: ' + vsCPUSelected);
-    // console.log('vsMulti: ' + vsMultiSelected);
-    // console.log('cpuIsX: ' + cpuIsXSelected);
-    // console.log('cpuIsO: ' + cpuIsOSelected);
-    // console.log('----------');
 }
 
-
+// Event Listeners
 a1.addEventListener('click', selectA1);
 b1.addEventListener('click', selectB1);
 c1.addEventListener('click', selectC1);
