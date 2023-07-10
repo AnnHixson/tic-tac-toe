@@ -68,15 +68,11 @@ function clearBoard(event) {
 
     winnerDisplay.style.display = 'none';
 
-
-
-    // IMPORTANT: TO BE DEALT WITH
-    // CPU DOESN'T AUTO-PLAY TURN 1 AS 'X' AFTER HITTING CLEAR BOARD
-    console.log(vsCPUSelected);
-    console.log(vsMultiSelected);
-    console.log(cpuIsXSelected);
-    console.log(cpuIsOSelected);
-    // ... SHOULD 'CLEAR BOARD' BE 'PLAY AGAIN' WHEN 'VS CPU' IS SELECTED ???
+    if (clearBoardBtn.textContent === 'Play Again (CPU is X)?') {
+        cpuPlaysX();
+    } else if (clearBoardBtn.textContent === 'Play Again (CPU is O)?') {
+        cpuPlaysO();
+    };
 };
 
 // This function displays (or hides) the game options
@@ -240,7 +236,7 @@ function cpuPlaysX() {
 }
 function cpuPlaysO() {
     if (turnCounter === 2) {
-
+        
     } else if (turnCounter === 4) {
 
     } else if (turnCounter === 6) {
@@ -794,6 +790,8 @@ function chooseMulti(event) {
     cpuIsXSelected = false;
     cpuIsOSelected = false;
 
+    clearBoardBtn.textContent = "Clear Board";
+
     cpuOptions.style.display = 'none';
 }
 function chooseCpuX(event) {
@@ -804,6 +802,9 @@ function chooseCpuX(event) {
     cpuIsXSelected = true;
     cpuIsOSelected = false;
     
+    clearBoardBtn.textContent = "Play Again (CPU is X)?";
+    clearBoard(event);
+
     cpuPlaysX();
 }
 function chooseCpuO(event) {
@@ -813,6 +814,9 @@ function chooseCpuO(event) {
     vsMultiSelected = false;
     cpuIsXSelected = false;
     cpuIsOSelected = true;
+
+    clearBoardBtn.textContent = "Play Again (CPU is O)?";
+    clearBoard(event);
 
     cpuPlaysO();
 }
