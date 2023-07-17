@@ -25,10 +25,17 @@ optionsContent.style.display = 'none';
 cpuOptions.style.display = 'none';
 winnerDisplay.style.display = 'none';
 let turnCounter = 1;
-let vsCPUSelected = false;
-let vsMultiSelected = true;
+
+// FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING
+// let vsCPUSelected = false;
+// let vsMultiSelected = true;
+// let cpuIsXSelected = false;
+// let cpuIsOSelected = false;
+// FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING FOR TESTING
+let vsCPUSelected = true;
+let vsMultiSelected = false;
 let cpuIsXSelected = false;
-let cpuIsOSelected = false;
+let cpuIsOSelected = true;
 
 // This function increases the turn counter and runs the checkWin function
 function makeAMove() {
@@ -236,6 +243,9 @@ function cpuPlaysO() {
         if (b2.textContent === 'x') {
             a1.textContent = 'o';
             makeAMove();
+        } else if (b2.textContent === '') {
+            b2.textContent = 'o';
+            makeAMove();
         }
     } else if (turnCounter === 4) {
         if (b2.textContent === 'x') {
@@ -258,10 +268,13 @@ function cpuPlaysO() {
                 b1.textContent = 'o';
                 makeAMove();
             }
+        } else if (b2.textContent === 'o') {
+            // if corner is x
+            // else if side is x
         }
     } else if (turnCounter === 6) {
         if (b2.textContent === 'x') {
-            if (b1.textContent === 'x') {
+            if ((b1.textContent === 'x') && (b3.textContent === 'o')) {
                 if ((c1.textContent === 'x') || (c3.textContent === 'x')) {
                     a3.textContent = 'o';
                     makeAMove();
@@ -275,7 +288,7 @@ function cpuPlaysO() {
                     c1.textContent = 'o';
                     makeAMove();
                 }
-            } else if (c1.textContent === 'x') {
+            } else if ((c1.textContent === 'x') && (a3.textContent === 'o')) {
                 if (a2.textContent === '') {
                     a2.textContent = 'o';
                     makeAMove();
@@ -283,7 +296,7 @@ function cpuPlaysO() {
                     c2.textContent = 'o';
                     makeAMove();
                 }
-            } else if (a2.textContent === 'x') {
+            } else if ((a2.textContent === 'x') && (c2.textContent === 'o')) {
                 if (b1.textContent === 'x') {
                     b3.textContent = 'o';
                     makeAMove();
@@ -297,7 +310,7 @@ function cpuPlaysO() {
                     b1.textContent = 'o';
                     makeAMove();
                 }
-            } else if (c2.textContent === 'x') {
+            } else if ((c2.textContent === 'x') && (a2.textContent === 'o')) {
                 if (a3.textContent === '') {
                     a3.textContent = 'o';
                     makeAMove();
@@ -305,7 +318,7 @@ function cpuPlaysO() {
                     c1.textContent = 'o';
                     makeAMove();
                 }
-            } else if ((a3.textContent === 'x') || (c3.textContent === 'x')) {
+            } else if (((a3.textContent === 'x') || (c3.textContent === 'x')) && (c1.textContent === 'o')) {
                 if (b1.textContent === '') {
                     b1.textContent = 'o';
                     makeAMove();
@@ -313,7 +326,7 @@ function cpuPlaysO() {
                     b3.textContent = 'o';
                     makeAMove();
                 }
-            } else if (b3.textContent === 'x') {
+            } else if ((b3.textContent === 'x') && (b1.textContent === 'o')) {
                 if (c1.textContent === '') {
                     c1.textContent = 'o';
                     makeAMove();
@@ -325,7 +338,7 @@ function cpuPlaysO() {
         }
     } else if (turnCounter === 8) {
         if (b2.textContent === 'x') {
-            if (b1.textContent === 'x') {
+            if ((b1.textContent === 'x') && (b3.textContent === 'o')) {
                 if (c1.textContent === 'x') {
                     if (a2.textContent === 'x') {
                         c3.textContent = 'o';
@@ -365,9 +378,9 @@ function cpuPlaysO() {
                     } else if (a2.textContent === '') {
                         a2.textContent = 'o';
                         makeAMove();
-                    }
+                    }  
                 }
-            } else if (c1.textContent === 'x') {
+            } else if ((c1.textContent === 'x') && (a3.textContent === 'o')) {
                 if (a2.textContent === 'x') {
                     if (b1.textContent === 'x') {
                         b3.textContent = 'o';
@@ -376,25 +389,17 @@ function cpuPlaysO() {
                         b1.textContent = 'o';
                         makeAMove();
                     }
+                } else if (b3.textContent === 'x') {
+                    if (a2.textContent === 'x') {
+                        c2.textContent = 'o';
+                        makeAMove();
+                    } else if (a2.textContent === '') {
+                        a2.textContent = 'o';
+                        makeAMove();
+                    }
                 }
-            } else if (a2.textContent === 'x') {
-                if (b1.textContent === 'x') {
-                    if (c1.textContent === 'x') {
-                        a3.textContent = 'o';
-                        makeAMove();
-                    } else if (c1.textContent === '') {
-                        c1.textContent = 'o';
-                        makeAMove();
-                    }
-                } else if (c1.textContent === 'x') {
-                    if (b1.textContent === 'x') {
-                        b3.textContent = 'o';
-                        makeAMove();
-                    } else if (b1.textContent === '') {
-                        b1.textContent = 'o';
-                        makeAMove();
-                    }
-                } else if (a3.textContent === 'x') {
+            } else if ((a2.textContent === 'x') && (c2.textContent === 'o')) {
+                if (a3.textContent === 'x') {
                     if (c3.textContent === 'x') {
                         b1.textContent = 'o';
                         makeAMove();
@@ -419,7 +424,7 @@ function cpuPlaysO() {
                         makeAMove();
                     }
                 }
-            } else if (c2.textContent === 'x') {
+            } else if ((c2.textContent === 'x') && (a2.textContent === 'o')) {
                 if (a3.textContent === 'x') {
                     if (b1.textContent === 'x') {
                         b3.textContent = 'o';
@@ -429,41 +434,10 @@ function cpuPlaysO() {
                         makeAMove();
                     }
                 }
-            } else if (a3.textContent === 'x') {
-                if (b1.textContent === 'x') {
-                    if (a2.textContent === 'x') {
-                        c2.textContent = 'o';
-                        makeAMove();
-                    } else if (a2.textContent === '') {
-                        a2.textContent = 'o';
-                        makeAMove();
-                    } 
-                }
-            } else if (b3.textContent === 'x') {
-                if (c1.textContent === 'x') {
-                    if (a2.textContent === 'x') {
-                        c2.textContent = 'o';
-                        makeAMove();
-                    } else if (a2.textContent === '') {
-                        a2.textContent = 'o';
-                        makeAMove();
-                    }
-                }
-            } else if (c3.textContent === 'x') {
-                if (b1.textContent === 'x') {
-                    if (a2.textContent === 'x') {
-                        c2.textContent = 'o';
-                        makeAMove();
-                    } else if (a2.textContent === '') {
-                        a2.textContent = 'o';
-                        makeAMove();
-                    }
-                }
             }
         }
     };
 }
-
 
 // These functions set whether 'x' or 'o' will appear in the selected space and trigger the CPU's turn if 'VS CPU' is selected
 function selectA1(event) {
