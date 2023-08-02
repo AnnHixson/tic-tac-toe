@@ -21,9 +21,9 @@ const cpuIsO = document.getElementById('cpu-x-or-o-o');
 const winnerDisplay = document.getElementById('winner-display');
 
 // Initial Settings
-optionsContent.style.display = 'none';
-cpuOptions.style.display = 'none';
-winnerDisplay.style.display = 'none';
+// optionsContent.style.display = 'none';
+// cpuOptions.style.display = 'none';
+// winnerDisplay.style.display = 'none';
 let turnCounter = 1;
 
 let vsCPUSelected = false;
@@ -1739,8 +1739,8 @@ b3.addEventListener('click', selectB3);
 c3.addEventListener('click', selectC3);
 
 clearBoardBtn.addEventListener('click', clearBoard);
-optionsBtn.addEventListener('click', displayOptions);
-vsCpu.addEventListener('click', chooseCPU);
-vsMulti.addEventListener('click', chooseMulti);
-cpuIsX.addEventListener('click', chooseCpuX);
-cpuIsO.addEventListener('click', chooseCpuO);
+// optionsBtn.addEventListener('click', displayOptions);
+// vsCpu.addEventListener('click', chooseCPU);
+// vsMulti.addEventListener('click', chooseMulti);
+// cpuIsX.addEventListener('click', chooseCpuX);
+// cpuIsO.addEventListener('click', chooseCpuO);
