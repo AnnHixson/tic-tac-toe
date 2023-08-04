@@ -12,39 +12,12 @@
     </head>
 
     <body>
-        <!-- <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#options" >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="options">
-                    <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <button class="btn btn-dark" id="cpu-vs-multi-cpu">VS CPU</button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="btn btn-dark" id="cpu-vs-multi-multi">Local Multiplayer</button>
-                        </li>
-                    </ul>
-                </div>
-                
-                <button class="btn btn-dark" id="options">Options</button>
-                <div class="btn-group" id="options-content">
-                    <button class="btn btn-dark" id="cpu-vs-multi-cpu">VS CPU</button>
-                    <button class="btn btn-dark" id="cpu-vs-multi-multi">Local Multiplayer</button>
-                </div>
-                <div class="btn-group" id="cpu-options">
-                    <button class="btn btn-dark" id="cpu-x-or-o-x">CPU is X</button>
-                    <button class="btn btn-dark" id="cpu-x-or-o-o">CPU is O</button>
-                </div> 
-            </div>
-        </nav> -->
-
-        <div class="dropdown">
-            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">Options</button>
-            <ul class="dropdown-menu">
-                <li class="dropdown-item dropdown">
-                    <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" id="cpu-vs-multi-cpu">VS CPU</button>
+        <div class="container-fluid d-flex justify-content-end mt-2 mb-3">
+            <div class="dropdown">
+                <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside">Options</button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item dropdown">
+                        <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" id="cpu-vs-multi-cpu">VS CPU</button>
                         <ul class="dropdown-menu">
                             <li class="dropdown-item">
                                 <button class="btn btn-dark" id="cpu-x-or-o-x">CPU is X</button>
@@ -53,40 +26,45 @@
                                 <button class="btn btn-dark" id="cpu-x-or-o-o">CPU is O</button>
                             </li>
                         </ul>
-                </li>
-                <li class="dropdown-item">
-                    <button class="btn btn-dark" id="cpu-vs-multi-multi">Local Multiplayer</button>
-                </li>
-            </ul>
+                    </li>
+                    <li class="dropdown-item">
+                        <button class="btn btn-dark" id="cpu-vs-multi-multi">Local Multiplayer</button>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <header></header>
-        
         <main>
-            <div class="container mt-2" id="whole-board">
+            <div class="container position-relative" id="whole-board">
+                <div class="container-fluid position-absolute top-50 start-50 translate-middle text-light  opacity-50 text-center fs-1 py-2 px-0 border border-start-0 border-end-0 border-5 border-info" id="winner-display">
+                    <div class="container-fluid bg-info py-5" id="winner-display-text">
+                        winner
+                    </div>
+                </div>
                 <div class="btn-group container-fluid" role="group" id="row1">
-                    <button type="button" class="btn btn-outline-none border border-top-0 border-start-0 border-dark rounded-0" id="a1"></button>
-                    <button type="button" class="btn btn-outline-none border border-top-0 border-dark rounded-0" id="b1"></button>
-                    <button type="button" class="btn btn-outline-none border border-top-0 border-end-0 border-dark rounded-0" id="c1"></button>
+                    <button type="button" class="btn btn-outline-none border border-top-0 border-start-0 border-dark rounded-0 ratio ratio-1x1" id="a1"></button>
+                    <button type="button" class="btn btn-outline-none border border-top-0 border-dark rounded-0 ratio ratio-1x1" id="b1"></button>
+                    <button type="button" class="btn btn-outline-none border border-top-0 border-end-0 border-dark rounded-0 ratio ratio-1x1" id="c1"></button>
                 </div>
                 <div class="btn-group container-fluid" role="group" id="row2">
-                    <button type="button" class="btn btn-outline-none border border-start-0 border-dark rounded-0" id="a2"></button>
-                    <button type="button" class="btn btn-outline-none border border-dark rounded-0" id="b2"></button>
-                    <button type="button" class="btn btn-outline-none border border-end-0 border-dark rounded-0" id="c2"></button>
+                    <button type="button" class="btn btn-outline-none border border-start-0 border-dark rounded-0 ratio ratio-1x1" id="a2"></button>
+                    <button type="button" class="btn btn-outline-none border border-dark rounded-0 ratio ratio-1x1" id="b2"></button>
+                    <button type="button" class="btn btn-outline-none border border-end-0 border-dark rounded-0 ratio ratio-1x1" id="c2"></button>
                 </div>
                 <div class="btn-group container-fluid" role="group" id="row3">
-                    <button type="button" class="btn btn-outline-none border border-start-0 border-bottom-0 border-dark rounded-0" id="a3"></button>
-                    <button type="button" class="btn btn-outline-none border border-bottom-0 border-dark rounded-0" id="b3"></button>
-                    <button type="button" class="btn btn-outline-none border border-end-0 border-bottom-0 border-dark rounded-0" id="c3"></button>
+                    <button type="button" class="btn btn-outline-none border border-start-0 border-bottom-0 border-dark rounded-0 ratio ratio-1x1" id="a3"></button>
+                    <button type="button" class="btn btn-outline-none border border-bottom-0 border-dark rounded-0 ratio ratio-1x1" id="b3"></button>
+                    <button type="button" class="btn btn-outline-none border border-end-0 border-bottom-0 border-dark rounded-0 ratio ratio-1x1" id="c3"></button>
                 </div>
             </div>
+        </main>
 
-    <div>
-        <button class="btn btn-dark" id="clear-board">Clear Board</button>
-    </div>
+        <div class="container-fluid d-flex justify-content-center mt-5 pt-3">
+            <button class="btn btn-dark" id="clear-board">Clear Board</button>
+        </div>
+        
+
     
-    <div id="winner-display"></div>
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
         <script src="assets/js/script.js"></script>
     </body>

@@ -19,11 +19,12 @@ const cpuOptions = document.getElementById('cpu-options');
 const cpuIsX = document.getElementById('cpu-x-or-o-x');
 const cpuIsO = document.getElementById('cpu-x-or-o-o');
 const winnerDisplay = document.getElementById('winner-display');
+const winnerDisplayText = document.getElementById('winner-display-text');
 
 // Initial Settings
 // optionsContent.style.display = 'none';
 // cpuOptions.style.display = 'none';
-// winnerDisplay.style.display = 'none';
+winnerDisplay.style.display = 'none';
 let turnCounter = 1;
 
 let vsCPUSelected = false;
@@ -41,13 +42,13 @@ function makeAMove() {
 function checkWin() {
     if ((a1.textContent === 'x' && b1.textContent === 'x' && c1.textContent === 'x') || (a1.textContent === 'x' && b2.textContent === 'x' && c3.textContent === 'x') || (a1.textContent === 'x' && a2.textContent === 'x' && a3.textContent === 'x') || (b1.textContent === 'x' && b2.textContent === 'x' && b3.textContent === 'x') || (c1.textContent === 'x' && c2.textContent === 'x' && c3.textContent === 'x') || (c1.textContent === 'x' && b2.textContent === 'x' && a3.textContent === 'x') || (a2.textContent === 'x' && b2.textContent === 'x' && c2.textContent === 'x') || (a3.textContent === 'x' && b3.textContent === 'x' && c3.textContent === 'x')) {
         winnerDisplay.style.display = 'block';
-        winnerDisplay.textContent = 'X Wins!';
+        winnerDisplayText.textContent = 'X Wins!';
     } else if ((a1.textContent === 'o' && b1.textContent === 'o' && c1.textContent === 'o') || (a1.textContent === 'o' && b2.textContent === 'o' && c3.textContent === 'o') || (a1.textContent === 'o' && a2.textContent === 'o' && a3.textContent === 'o') || (b1.textContent === 'o' && b2.textContent === 'o' && b3.textContent === 'o') || (c1.textContent === 'o' && c2.textContent === 'o' && c3.textContent === 'o') || (c1.textContent === 'o' && b2.textContent === 'o' && a3.textContent === 'o') || (a2.textContent === 'o' && b2.textContent === 'o' && c2.textContent === 'o') || (a3.textContent === 'o' && b3.textContent === 'o' && c3.textContent === 'o')) {
         winnerDisplay.style.display = 'block';
-        winnerDisplay.textContent = 'O Wins!';
+        winnerDisplayText.textContent = 'O Wins!';
     } else if (a1.textContent !== '' && b1.textContent !== '' && c1.textContent !== '' && a2.textContent !== '' && b2.textContent !== '' && c2.textContent !== '' && a3.textContent !== '' && b3.textContent !== '' && c3.textContent !== '') {
         winnerDisplay.style.display = 'block';
-        winnerDisplay.textContent = 'It\'s a Tie!';
+        winnerDisplayText.textContent = 'It\'s a Tie!';
     };
 };
 
@@ -1686,7 +1687,7 @@ function chooseCPU(event) {
     cpuIsXSelected = false;
     cpuIsOSelected = false;
 
-    cpuOptions.style.display = 'block';   
+    // cpuOptions.style.display = 'block';   
 }
 function chooseMulti(event) {
     event.preventDefault();
@@ -1698,7 +1699,7 @@ function chooseMulti(event) {
 
     clearBoardBtn.textContent = "Clear Board";
 
-    cpuOptions.style.display = 'none';
+    // cpuOptions.style.display = 'none';
 }
 function chooseCpuX(event) {
     event.preventDefault();
@@ -1740,7 +1741,7 @@ c3.addEventListener('click', selectC3);
 
 clearBoardBtn.addEventListener('click', clearBoard);
 // optionsBtn.addEventListener('click', displayOptions);
-// vsCpu.addEventListener('click', chooseCPU);
-// vsMulti.addEventListener('click', chooseMulti);
-// cpuIsX.addEventListener('click', chooseCpuX);
-// cpuIsO.addEventListener('click', chooseCpuO);
+vsCpu.addEventListener('click', chooseCPU);
+vsMulti.addEventListener('click', chooseMulti);
+cpuIsX.addEventListener('click', chooseCpuX);
+cpuIsO.addEventListener('click', chooseCpuO);
