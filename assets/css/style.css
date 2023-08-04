@@ -1,15 +1,3 @@
-/* #whole-board {
-    height: 100vh;
-    width: 100vh;
-}
-
-#row1,
-#row2,
-#row3 {
-    height: 30%;
-    width: 100%;
-}
-
 #a1,
 #b1,
 #c1,
@@ -19,11 +7,18 @@
 #a3,
 #b3,
 #c3 {
-    width:30%;
-    font-size: 300%;
-} */
+    font-size: 10vw;
+}
 
-/* #whole-board {
-    height: 100vh;
-} */
+#winner-display {
+    z-index: 100;
+    color: white;
+}
 
+#winner-display-text {
+    background-color: #0dcaf0ab;
+}
+
+/* body {
+    max-height: 100%;
+} */

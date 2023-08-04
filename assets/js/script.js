@@ -40,7 +40,7 @@ function makeAMove() {
 
 // This function checks if the game is complete (win or tie)
 function checkWin() {
-    if ((a1.textContent === 'x' && b1.textContent === 'x' && c1.textContent === 'x') || (a1.textContent === 'x' && b2.textContent === 'x' && c3.textContent === 'x') || (a1.textContent === 'x' && a2.textContent === 'x' && a3.textContent === 'x') || (b1.textContent === 'x' && b2.textContent === 'x' && b3.textContent === 'x') || (c1.textContent === 'x' && c2.textContent === 'x' && c3.textContent === 'x') || (c1.textContent === 'x' && b2.textContent === 'x' && a3.textContent === 'x') || (a2.textContent === 'x' && b2.textContent === 'x' && c2.textContent === 'x') || (a3.textContent === 'x' && b3.textContent === 'x' && c3.textContent === 'x')) {
+    if ((a1.textContent === 'X' && b1.textContent === 'X' && c1.textContent === 'X') || (a1.textContent === 'X' && b2.textContent === 'X' && c3.textContent === 'X') || (a1.textContent === 'X' && a2.textContent === 'X' && a3.textContent === 'X') || (b1.textContent === 'X' && b2.textContent === 'X' && b3.textContent === 'X') || (c1.textContent === 'X' && c2.textContent === 'X' && c3.textContent === 'X') || (c1.textContent === 'X' && b2.textContent === 'X' && a3.textContent === 'X') || (a2.textContent === 'X' && b2.textContent === 'X' && c2.textContent === 'X') || (a3.textContent === 'X' && b3.textContent === 'X' && c3.textContent === 'X')) {
         winnerDisplay.style.display = 'block';
         winnerDisplayText.textContent = 'X Wins!';
     } else if ((a1.textContent === 'o' && b1.textContent === 'o' && c1.textContent === 'o') || (a1.textContent === 'o' && b2.textContent === 'o' && c3.textContent === 'o') || (a1.textContent === 'o' && a2.textContent === 'o' && a3.textContent === 'o') || (b1.textContent === 'o' && b2.textContent === 'o' && b3.textContent === 'o') || (c1.textContent === 'o' && c2.textContent === 'o' && c3.textContent === 'o') || (c1.textContent === 'o' && b2.textContent === 'o' && a3.textContent === 'o') || (a2.textContent === 'o' && b2.textContent === 'o' && c2.textContent === 'o') || (a3.textContent === 'o' && b3.textContent === 'o' && c3.textContent === 'o')) {
@@ -92,150 +92,150 @@ function displayOptions(event) {
 // These functions handle the CPU's turns
 function cpuPlaysX() {
     if (turnCounter === 1) {
-        b2.textContent = 'x';
+        b2.textContent = 'X';
         makeAMove();
     } else if (turnCounter === 3) {
         if ((b1.textContent === 'o') || (a2.textContent === 'o') || (c2.textContent === 'o') || (b3.textContent === 'o')) {
-            a1.textContent = 'x';
+            a1.textContent = 'X';
             makeAMove();
         } else if ((a1.textContent === 'o') || (c1.textContent === 'o') || (a3.textContent === 'o') || (c3.textContent === 'o')) {
             if (a1.textContent === 'o') {
-                c3.textContent = 'x';
+                c3.textContent = 'X';
                 makeAMove();
             } else if (c1.textContent === 'o') {
-                a3.textContent = 'x';
+                a3.textContent = 'X';
                 makeAMove();
             } else if (a3.textContent === 'o') {
-                c1.textContent = 'x';
+                c1.textContent = 'X';
                 makeAMove(); 
             } else if (c3.textContent === 'o') {
-                a1.textContent = 'x';
+                a1.textContent = 'X';
                 makeAMove();
             }
         }
     } else if (turnCounter === 5) {
-        if ((a1.textContent === 'x') && (c3.textContent === '')) {
-            c3.textContent = 'x';
+        if ((a1.textContent === 'X') && (c3.textContent === '')) {
+            c3.textContent = 'X';
             makeAMove();
-        } else if ((((a1.textContent === 'x') && (c3.textContent === 'o')) || ((c1.textContent === 'x') && (a3.textContent === 'o')) || ((a3.textContent === 'x') && (c1.textContent === 'o')) || ((c3.textContent === 'x') && (a1.textContent === 'o'))) && ((b1.textContent === 'o') || (a2.textContent === 'o') || (c2.textContent === 'o') || (b3.textContent === 'o'))) {
-            if (a1.textContent === 'x') {
+        } else if ((((a1.textContent === 'X') && (c3.textContent === 'o')) || ((c1.textContent === 'X') && (a3.textContent === 'o')) || ((a3.textContent === 'X') && (c1.textContent === 'o')) || ((c3.textContent === 'X') && (a1.textContent === 'o'))) && ((b1.textContent === 'o') || (a2.textContent === 'o') || (c2.textContent === 'o') || (b3.textContent === 'o'))) {
+            if (a1.textContent === 'X') {
                 if ((b1.textContent === 'o') || (b3.textContent === 'o')) {
-                    a3.textContent = 'x';
+                    a3.textContent = 'X';
                     makeAMove();
                 } else if ((a2.textContent === 'o') || (c2.textContent === 'o')) {
-                    c1.textContent = 'x';
+                    c1.textContent = 'X';
                     makeAMove();
                 }
-            } else if (c1.textContent === 'x') {
+            } else if (c1.textContent === 'X') {
                 if ((b1.textContent === 'o') || (b3.textContent === 'o')) {
-                    c3.textContent = 'x';
+                    c3.textContent = 'X';
                     makeAMove();
                 } else if ((a2.textContent === 'o') || (c2.textContent === 'o')) {
-                    a1.textContent = 'x';
+                    a1.textContent = 'X';
                     makeAMove();
                 }
-            } else if (a3.textContent === 'x') {
+            } else if (a3.textContent === 'X') {
                 if ((b1.textContent === 'o') || (b3.textContent === 'o')) {
-                    a1.textContent = 'x';
+                    a1.textContent = 'X';
                     makeAMove();
                 } else if ((a2.textContent === 'o') || (c2.textContent === 'o')) {
-                    c3.textContent = 'x';
+                    c3.textContent = 'X';
                     makeAMove();
                 }
-            } else if (c3.textContent === 'x') {
+            } else if (c3.textContent === 'X') {
                 if ((b1.textContent === 'o') || (b3.textContent === 'o')) {
-                    c1.textContent = 'x';
+                    c1.textContent = 'X';
                     makeAMove();
                 } else if ((a2.textContent === 'o') || (c2.textContent === 'o')) {
-                    a3.textContent = 'x';
+                    a3.textContent = 'X';
                     makeAMove();
                 }
             }
         }
          else if ((b1.textContent === '') && (a2.textContent === '') && (c2.textContent === '') && (b3.textContent === '')) {
             if ((a1.textContent === 'o') && (a3.textContent === 'o')) {
-                a2.textContent = 'x';
+                a2.textContent = 'X';
                 makeAMove();
             } else if ((a1.textContent === 'o') && (c1.textContent === 'o')) {
-                b1.textContent = 'x';
+                b1.textContent = 'X';
                 makeAMove();
             } else if ((a3.textContent === 'o') && (c3.textContent === 'o')) {
-                b3.textContent = 'x';
+                b3.textContent = 'X';
                 makeAMove();
             } else if ((c1.textContent === 'o') && (c3.textContent === 'o')) {
-                c2.textContent = 'x';
+                c2.textContent = 'X';
                 makeAMove();
             }
          } 
     } else if (turnCounter === 7) {
-        if ((a1.textContent === 'x') && (b1.textContent === '') && (c1.textContent === 'x')) {
-            b1.textContent = 'x';
+        if ((a1.textContent === 'X') && (b1.textContent === '') && (c1.textContent === 'X')) {
+            b1.textContent = 'X';
             makeAMove();
-        } else if ((a1.textContent === 'x') && (a2.textContent === '') && (a3.textContent === 'x')) {
-            a2.textContent = 'x';
+        } else if ((a1.textContent === 'X') && (a2.textContent === '') && (a3.textContent === 'X')) {
+            a2.textContent = 'X';
             makeAMove();
-        } else if ((c1.textContent === 'x') && (c2.textContent === '') && (c3.textContent === 'x')) {
-            c2.textContent = 'x';
+        } else if ((c1.textContent === 'X') && (c2.textContent === '') && (c3.textContent === 'X')) {
+            c2.textContent = 'X';
             makeAMove();
-        } else if ((a3.textContent === 'x') && (b3.textContent === '') && (c3.textContent === 'x')) {
-            b3.textContent = 'x';
+        } else if ((a3.textContent === 'X') && (b3.textContent === '') && (c3.textContent === 'X')) {
+            b3.textContent = 'X';
             makeAMove();
-        } else if ((a1.textContent === 'x') && (c3.textContent === '')) {
-            c3.textContent = 'x';
+        } else if ((a1.textContent === 'X') && (c3.textContent === '')) {
+            c3.textContent = 'X';
             makeAMove();
-        } else if ((c1.textContent === 'x') && (a3.textContent === '')) {
-            a3.textContent = 'x';
+        } else if ((c1.textContent === 'X') && (a3.textContent === '')) {
+            a3.textContent = 'X';
             makeAMove();
-        } else if ((a3.textContent === 'x') && (c1.textContent === '')) {
-            c1.textContent = 'x';
+        } else if ((a3.textContent === 'X') && (c1.textContent === '')) {
+            c1.textContent = 'X';
             makeAMove();
-        } else if ((c3.textContent === 'x') && (a1.textContent === '')) {
-            a1.textContent = 'x';
+        } else if ((c3.textContent === 'X') && (a1.textContent === '')) {
+            a1.textContent = 'X';
             makeAMove();
-        } else if (((a1.textContent === 'o') && (a3.textContent === 'o') && (c3.textContent === 'x')) || ((c1.textContent === 'o') && (c3.textContent === 'o') && (a3.textContent === 'x'))) {
-            b1.textContent = 'x';
+        } else if (((a1.textContent === 'o') && (a3.textContent === 'o') && (c3.textContent === 'X')) || ((c1.textContent === 'o') && (c3.textContent === 'o') && (a3.textContent === 'X'))) {
+            b1.textContent = 'X';
             makeAMove();
-        } else if (((a1.textContent === 'o') && (c1.textContent === 'o') && (c3.textContent === 'x')) || ((a3.textContent === 'o') && (c3.textContent === 'o') && (c1.textContent === 'x'))) {
-            a2.textContent = 'x';
+        } else if (((a1.textContent === 'o') && (c1.textContent === 'o') && (c3.textContent === 'X')) || ((a3.textContent === 'o') && (c3.textContent === 'o') && (c1.textContent === 'X'))) {
+            a2.textContent = 'X';
             makeAMove();
-        } else if (((a1.textContent === 'o') && (c1.textContent === 'o') && (a3.textContent === 'x')) || ((a3.textContent === 'o') && (c3.textContent === 'o') && (a1.textContent === 'x'))) {
-            c2.textContent = 'x';
+        } else if (((a1.textContent === 'o') && (c1.textContent === 'o') && (a3.textContent === 'X')) || ((a3.textContent === 'o') && (c3.textContent === 'o') && (a1.textContent === 'X'))) {
+            c2.textContent = 'X';
             makeAMove();
-        } else if (((a1.textContent === 'o') && (a3.textContent === 'o') && (c1.textContent === 'x')) || ((c1.textContent === 'o') && (c3.textContent === 'o') && (a1.textContent === 'x'))) {
-            b3.textContent = 'x';
+        } else if (((a1.textContent === 'o') && (a3.textContent === 'o') && (c1.textContent === 'X')) || ((c1.textContent === 'o') && (c3.textContent === 'o') && (a1.textContent === 'X'))) {
+            b3.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 9) {
-        if ((b1.textContent === 'x') && (b3.textContent === '')) {
-            b3.textContent = 'x';
+        if ((b1.textContent === 'X') && (b3.textContent === '')) {
+            b3.textContent = 'X';
             makeAMove();
-        } else if ((a2.textContent === 'x') && (c2.textContent === '')) {
-            c2.textContent = 'x';
+        } else if ((a2.textContent === 'X') && (c2.textContent === '')) {
+            c2.textContent = 'X';
             makeAMove();
-        } else if ((c2.textContent === 'x') && (a2.textContent === '')) {
-            a2.textContent = 'x';
+        } else if ((c2.textContent === 'X') && (a2.textContent === '')) {
+            a2.textContent = 'X';
             makeAMove();
-        } else if ((b3.textContent === 'x') && (b1.textContent === '')) {
-            b1.textContent = 'x';
+        } else if ((b3.textContent === 'X') && (b1.textContent === '')) {
+            b1.textContent = 'X';
             makeAMove();
         } else if (a1.textContent === '') {
-            a1.textContent = 'x';
+            a1.textContent = 'X';
             makeAMove();
         } else if (c1.textContent === '') {
-            c1.textContent = 'x';
+            c1.textContent = 'X';
             makeAMove();
         } else if (a3.textContent === '') {
-            a3.textContent = 'x';
+            a3.textContent = 'X';
             makeAMove();
         } else if (c3.textContent === '') {
-            c3.textContent = 'x';
+            c3.textContent = 'X';
             makeAMove();
         }
     };
 }
 function cpuPlaysO() {
     if (turnCounter === 2) {
-        if (b2.textContent === 'x') {
+        if (b2.textContent === 'X') {
             a1.textContent = 'o';
             makeAMove();
         } else if (b2.textContent === '') {
@@ -243,159 +243,159 @@ function cpuPlaysO() {
             makeAMove();
         }
     } else if (turnCounter === 4) {
-        if (b2.textContent === 'x') {
-            if (b1.textContent === 'x') {
+        if (b2.textContent === 'X') {
+            if (b1.textContent === 'X') {
                 b3.textContent = 'o';
                 makeAMove();
-            } else if (c1.textContent === 'x') {
+            } else if (c1.textContent === 'X') {
                 a3.textContent = 'o';
                 makeAMove();
-            } else if (a2.textContent === 'x') {
+            } else if (a2.textContent === 'X') {
                 c2.textContent = 'o';
                 makeAMove();
-            } else if (c2.textContent === 'x') {
+            } else if (c2.textContent === 'X') {
                 a2.textContent = 'o';
                 makeAMove();
-            } else if ((a3.textContent === 'x') || (c3.textContent === 'x')) {
+            } else if ((a3.textContent === 'X') || (c3.textContent === 'X')) {
                 c1.textContent = 'o';
                 makeAMove();
-            } else if (b3.textContent === 'x') {
+            } else if (b3.textContent === 'X') {
                 b1.textContent = 'o';
                 makeAMove();
             }
         } else if (b2.textContent === 'o') {
-            if (a1.textContent === 'x') {
-                if ((b1.textContent === 'x') || (c2.textContent === 'x')) {
+            if (a1.textContent === 'X') {
+                if ((b1.textContent === 'X') || (c2.textContent === 'X')) {
                     c1.textContent = 'o';
                     makeAMove();
-                } else if ((c1.textContent === 'x') || (c3.textContent === 'x')) {
+                } else if ((c1.textContent === 'X') || (c3.textContent === 'X')) {
                     b1.textContent = 'o';
                     makeAMove();
-                } else if ((a2.textContent === 'x') || (b3.textContent === 'x')) {
+                } else if ((a2.textContent === 'X') || (b3.textContent === 'X')) {
                     a3.textContent = 'o';
                     makeAMove();
-                } else if (a3.textContent === 'x') {
+                } else if (a3.textContent === 'X') {
                     a2.textContent = 'o';
                     makeAMove();
                 }
-            } else if (b1.textContent === 'x') {
-                if ((c1.textContent === 'x') || (a3.textContent === 'x') || (b3.textContent === 'x') || (c3.textContent === 'x')) {
+            } else if (b1.textContent === 'X') {
+                if ((c1.textContent === 'X') || (a3.textContent === 'X') || (b3.textContent === 'X') || (c3.textContent === 'X')) {
                     a1.textContent = 'o';
                     makeAMove();
-                } else if ((a2.textContent === 'x') || (c2.textContent === 'x')) {
+                } else if ((a2.textContent === 'X') || (c2.textContent === 'X')) {
                     c1.textContent = 'o';
                     makeAMove();
                 }
-            } else if (c1.textContent === 'x') {
-                if (a2.textContent === 'x') {
+            } else if (c1.textContent === 'X') {
+                if (a2.textContent === 'X') {
                     a1.textContent = 'o';
                     makeAMove();
-                } else if ((c2.textContent === 'x') || (b3.textContent === 'x')) {
+                } else if ((c2.textContent === 'X') || (b3.textContent === 'X')) {
                     c3.textContent = 'o';
                     makeAMove();
-                } else if (a3.textContent === 'x') {
+                } else if (a3.textContent === 'X') {
                     b1.textContent = 'o';
                     makeAMove();
-                } else if (c3.textContent === 'x') {
+                } else if (c3.textContent === 'X') {
                     c2.textContent = 'o';
                     makeAMove();
                 }
-            } else if (a2.textContent === 'x') {
-                if ((c2.textContent === 'x') || (c3.textContent === 'x')) {
+            } else if (a2.textContent === 'X') {
+                if ((c2.textContent === 'X') || (c3.textContent === 'X')) {
                     a3.textContent = 'o';
                     makeAMove();
-                } else if ((a3.textContent === 'x') || (b3.textContent === 'x')) {
+                } else if ((a3.textContent === 'X') || (b3.textContent === 'X')) {
                     a1.textContent = 'o';
                     makeAMove();
                 }
-            } else if (c2.textContent === 'x') {
-                if ((a3.textContent === 'x') || (c3.textContent === 'x')) {
+            } else if (c2.textContent === 'X') {
+                if ((a3.textContent === 'X') || (c3.textContent === 'X')) {
                     c1.textContent = 'o';
                     makeAMove();
-                } else if (b3.textContent === 'x') {
+                } else if (b3.textContent === 'X') {
                     c3.textContent = 'o';
                     makeAMove();
                 }
-            } else if (a3.textContent === 'x') {
-                if (b3.textContent === 'x') {
+            } else if (a3.textContent === 'X') {
+                if (b3.textContent === 'X') {
                     c3.textContent = 'o';
                     makeAMove();
-                } else if (c3.textContent === 'x') {
+                } else if (c3.textContent === 'X') {
                     b3.textContent = 'o';
                     makeAMove();
                 }
-            } else if (b3.textContent === 'x') {
+            } else if (b3.textContent === 'X') {
                 a3.textContent = 'o';
                 makeAMove();
             }
         }
     } else if (turnCounter === 6) {
-        if (b2.textContent === 'x') {
-            if ((b1.textContent === 'x') && (b3.textContent === 'o')) {
-                if ((c1.textContent === 'x') || (c3.textContent === 'x')) {
+        if (b2.textContent === 'X') {
+            if ((b1.textContent === 'X') && (b3.textContent === 'o')) {
+                if ((c1.textContent === 'X') || (c3.textContent === 'X')) {
                     a3.textContent = 'o';
                     makeAMove();
-                } else if (a2.textContent === 'x') {
+                } else if (a2.textContent === 'X') {
                     c2.textContent = 'o';
                     makeAMove();
-                } else if (c2.textContent === 'x') {
+                } else if (c2.textContent === 'X') {
                     a2.textContent = 'o';
                     makeAMove();
-                } else if (a3.textContent === 'x') {
+                } else if (a3.textContent === 'X') {
                     c1.textContent = 'o';
                     makeAMove();
                 }
-            } else if ((c1.textContent === 'x') && (a3.textContent === 'o')) {
+            } else if ((c1.textContent === 'X') && (a3.textContent === 'o')) {
                 if (a2.textContent === '') {
                     a2.textContent = 'o';
                     makeAMove();
-                } else if (a2.textContent === 'x') {
+                } else if (a2.textContent === 'X') {
                     c2.textContent = 'o';
                     makeAMove();
                 }
-            } else if ((a2.textContent === 'x') && (c2.textContent === 'o')) {
-                if (b1.textContent === 'x') {
+            } else if ((a2.textContent === 'X') && (c2.textContent === 'o')) {
+                if (b1.textContent === 'X') {
                     b3.textContent = 'o';
                     makeAMove();
-                } else if (c1.textContent === 'x') {
+                } else if (c1.textContent === 'X') {
                     a3.textContent = 'o';
                     makeAMove();
-                } else if ((a3.textContent === 'x') || (c3.textContent === 'x')) {
+                } else if ((a3.textContent === 'X') || (c3.textContent === 'X')) {
                     c1.textContent = 'o';
                     makeAMove();
-                } else if (b3.textContent === 'x') {
+                } else if (b3.textContent === 'X') {
                     b1.textContent = 'o';
                     makeAMove();
                 }
-            } else if ((c2.textContent === 'x') && (a2.textContent === 'o')) {
+            } else if ((c2.textContent === 'X') && (a2.textContent === 'o')) {
                 if (a3.textContent === '') {
                     a3.textContent = 'o';
                     makeAMove();
-                } else if (a3.textContent === 'x') {
+                } else if (a3.textContent === 'X') {
                     c1.textContent = 'o';
                     makeAMove();
                 }
-            } else if (((a3.textContent === 'x') || (c3.textContent === 'x')) && (c1.textContent === 'o')) {
+            } else if (((a3.textContent === 'X') || (c3.textContent === 'X')) && (c1.textContent === 'o')) {
                 if (b1.textContent === '') {
                     b1.textContent = 'o';
                     makeAMove();
-                } else if (b1.textContent === 'x') {
+                } else if (b1.textContent === 'X') {
                     b3.textContent = 'o';
                     makeAMove();
                 }
-            } else if ((b3.textContent === 'x') && (b1.textContent === 'o')) {
+            } else if ((b3.textContent === 'X') && (b1.textContent === 'o')) {
                 if (c1.textContent === '') {
                     c1.textContent = 'o';
                     makeAMove();
-                } else if (c1.textContent === 'x') {
+                } else if (c1.textContent === 'X') {
                     a3.textContent = 'o';
                     makeAMove();
                 }
             }
         } else if (b2.textContent === 'o') {
-            if (a1.textContent === 'x') {
-                if (b1.textContent === 'x') {
-                    if ((a2.textContent === 'x') || (b3.textContent === 'x')) {
+            if (a1.textContent === 'X') {
+                if (b1.textContent === 'X') {
+                    if ((a2.textContent === 'X') || (b3.textContent === 'X')) {
                         if (a3.textContent === '') {
                             a3.textContent = 'o';
                             makeAMove();
@@ -403,10 +403,10 @@ function cpuPlaysO() {
                             c1.textContent = 'o';
                             makeAMove();
                         }
-                    } else if ((c2.textContent === 'x') || (c3.textContent === 'x')) {
+                    } else if ((c2.textContent === 'X') || (c3.textContent === 'X')) {
                         a3.textContent = 'o';
                             makeAMove();
-                    } else if (a3.textContent === 'x') {
+                    } else if (a3.textContent === 'X') {
                         if (a2.textContent === 'o') {
                             c2.textContent = 'o';
                             makeAMove();
@@ -415,8 +415,8 @@ function cpuPlaysO() {
                             makeAMove();
                         }
                     }
-                } else if (c1.textContent === 'x') {
-                    if ((a2.textContent === 'x') || (c2.textContent === 'x')) {
+                } else if (c1.textContent === 'X') {
+                    if ((a2.textContent === 'X') || (c2.textContent === 'X')) {
                         if (b1.textContent === 'o') {
                             b3.textContent = 'o';
                             makeAMove();
@@ -424,7 +424,7 @@ function cpuPlaysO() {
                             b1.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (a3.textContent === 'x') {
+                    } else if (a3.textContent === 'X') {
                         if (b1.textContent === 'o') {
                             b3.textContent = 'o';
                             makeAMove();
@@ -432,7 +432,7 @@ function cpuPlaysO() {
                             c2.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (b3.textContent === 'x') {
+                    } else if (b3.textContent === 'X') {
                         if (b1.textContent === 'o') {
                             a2.textContent = 'o';
                             makeAMove();
@@ -440,7 +440,7 @@ function cpuPlaysO() {
                             a2.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (c3.textContent === 'x') {
+                    } else if (c3.textContent === 'X') {
                         if (b1.textContent === 'o') {
                             b3.textContent = 'o';
                             makeAMove();
@@ -449,8 +449,8 @@ function cpuPlaysO() {
                             makeAMove();
                         }
                     }
-                } else if (a2.textContent === 'x') {
-                    if (c2.textContent === 'x') {
+                } else if (a2.textContent === 'X') {
+                    if (c2.textContent === 'X') {
                         if (a3.textContent === 'o') {
                             c1.textContent = 'o';
                             makeAMove();
@@ -458,10 +458,10 @@ function cpuPlaysO() {
                             a3.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (b3.textContent === 'x') {
+                    } else if (b3.textContent === 'X') {
                         c1.textContent = 'o';
                         makeAMove();
-                    } else if (c3.textContent === 'x') {
+                    } else if (c3.textContent === 'X') {
                         if (a3.textContent === 'o') {
                             c1.textContent = 'o';
                             makeAMove();
@@ -470,8 +470,8 @@ function cpuPlaysO() {
                             makeAMove();
                         }
                     }
-                } else if (c2.textContent === 'x') {
-                    if (a3.textContent === 'x') {
+                } else if (c2.textContent === 'X') {
+                    if (a3.textContent === 'X') {
                         if (a2.textContent === 'o') {
                             b1.textContent = 'o';
                             makeAMove();
@@ -479,7 +479,7 @@ function cpuPlaysO() {
                             a2.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (b3.textContent === 'x') {
+                    } else if (b3.textContent === 'X') {
                         if (c1.textContent === 'o') {
                             a3.textContent = 'o';
                             makeAMove();
@@ -487,7 +487,7 @@ function cpuPlaysO() {
                             c1.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (c3.textContent === 'x') {
+                    } else if (c3.textContent === 'X') {
                         if (c1.textContent === 'o') {
                             a3.textContent = 'o';
                             makeAMove();
@@ -496,8 +496,8 @@ function cpuPlaysO() {
                             makeAMove();
                         }
                     }
-                } else if (a3.textContent === 'x') {
-                    if (b3.textContent === 'x') {
+                } else if (a3.textContent === 'X') {
+                    if (b3.textContent === 'X') {
                         if (a2.textContent === 'o') {
                             c2.textContent = 'o';
                             makeAMove();
@@ -505,7 +505,7 @@ function cpuPlaysO() {
                             a2.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (c3.textContent === 'x') {
+                    } else if (c3.textContent === 'X') {
                         if (a2.textContent === 'o') {
                             c2.textContent = 'o';
                             makeAMove();
@@ -517,7 +517,7 @@ function cpuPlaysO() {
                             makeAMove();
                         }
                     }
-                } else if (b3.textContent === 'x') {
+                } else if (b3.textContent === 'X') {
                     if (a3.textContent === 'o') {
                         c1.textContent = 'o';
                         makeAMove();
@@ -526,12 +526,12 @@ function cpuPlaysO() {
                         makeAMove();
                     }
                 }
-            } else if (b1.textContent === 'x') {
-                if (c1.textContent === 'x') {
-                    if ((a2.textContent === 'x') || (a3.textContent === 'x')) {
+            } else if (b1.textContent === 'X') {
+                if (c1.textContent === 'X') {
+                    if ((a2.textContent === 'X') || (a3.textContent === 'X')) {
                         c3.textContent = 'o';
                         makeAMove();
-                    } else if ((c2.textContent === 'x') || (b3.textContent === 'x')) {
+                    } else if ((c2.textContent === 'X') || (b3.textContent === 'X')) {
                         if (a1.textContent === 'o') {
                             c3.textContent = 'o';
                             makeAMove();
@@ -539,7 +539,7 @@ function cpuPlaysO() {
                             a1.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (c3.textContent === 'x') {
+                    } else if (c3.textContent === 'X') {
                         if (c2.textContent === 'o') {
                             a2.textContent = 'o';
                             makeAMove();
@@ -548,8 +548,8 @@ function cpuPlaysO() {
                             makeAMove();
                         }
                     }
-                } else if (a2.textContent === 'x') {
-                    if (c2.textContent === 'x') {
+                } else if (a2.textContent === 'X') {
+                    if (c2.textContent === 'X') {
                         if (c1.textContent === 'o') {
                             a3.textContent = 'o';
                             makeAMove();
@@ -557,7 +557,7 @@ function cpuPlaysO() {
                             c1.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (a3.textContent === 'x') {
+                    } else if (a3.textContent === 'X') {
                         if (a1.textContent === 'o') {
                             c3.textContent = 'o';
                             makeAMove();
@@ -565,7 +565,7 @@ function cpuPlaysO() {
                             a1.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (b3.textContent === 'x') {
+                    } else if (b3.textContent === 'X') {
                         if (a1.textContent === 'o') {
                             c3.textContent = 'o';
                             makeAMove();
@@ -573,7 +573,7 @@ function cpuPlaysO() {
                             a3.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (c3.textContent === 'x') {
+                    } else if (c3.textContent === 'X') {
                         if (a3.textContent === 'o') {
                             c1.textContent = 'o';
                             makeAMove();
@@ -582,8 +582,8 @@ function cpuPlaysO() {
                             makeAMove();
                         }
                     }
-                } else if (c2.textContent === 'x') {
-                    if (a3.textContent === 'x') {
+                } else if (c2.textContent === 'X') {
+                    if (a3.textContent === 'X') {
                         if (a1.textContent === 'o') {
                             c3.textContent = 'o';
                             makeAMove();
@@ -591,7 +591,7 @@ function cpuPlaysO() {
                             a1.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (b3.textContent === 'x') {
+                    } else if (b3.textContent === 'X') {
                         if (c1.textContent === 'o') {
                             a3.textContent = 'o';
                             makeAMove();
@@ -602,7 +602,7 @@ function cpuPlaysO() {
                             a1.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (c3.textContent === 'x') {
+                    } else if (c3.textContent === 'X') {
                         if (c1.textContent === 'o') {
                             a3.textContent = 'o';
                             makeAMove();
@@ -611,8 +611,8 @@ function cpuPlaysO() {
                             makeAMove();
                         }
                     }
-                } else if (a3.textContent === 'x') {
-                    if (b3.textContent === 'x') {
+                } else if (a3.textContent === 'X') {
+                    if (b3.textContent === 'X') {
                         if (a1.textContent === 'o') {
                             c3.textContent = 'o';
                             makeAMove();
@@ -620,7 +620,7 @@ function cpuPlaysO() {
                             a1.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (c3.textContent === 'x') {
+                    } else if (c3.textContent === 'X') {
                         if (b3.textContent === 'o') {
                             a2.textContent = 'o';
                             makeAMove();
@@ -629,7 +629,7 @@ function cpuPlaysO() {
                             makeAMove();
                         }
                     }
-                } else if (b3.textContent === 'x') {
+                } else if (b3.textContent === 'X') {
                     if (a3.textContent === 'o') {
                         c1.textContent = 'o';
                         makeAMove();
@@ -638,9 +638,9 @@ function cpuPlaysO() {
                         makeAMove();
                     }
                 }
-            } else if (c1.textContent === 'x') {
-                if (a2.textContent === 'x') {
-                    if (c2.textContent === 'x') {
+            } else if (c1.textContent === 'X') {
+                if (a2.textContent === 'X') {
+                    if (c2.textContent === 'X') {
                         if (a3.textContent === 'o') {
                             a1.textContent = 'o';
                             makeAMove();
@@ -648,7 +648,7 @@ function cpuPlaysO() {
                             c3.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (a3.textContent === 'x') {
+                    } else if (a3.textContent === 'X') {
                         if (a1.textContent === 'o') {
                             c3.textContent = 'o';
                             makeAMove();
@@ -656,7 +656,7 @@ function cpuPlaysO() {
                             b3.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (b3.textContent === 'x') {
+                    } else if (b3.textContent === 'X') {
                         if (a1.textContent === 'o') {
                             c3.textContent = 'o';
                             makeAMove();
@@ -664,7 +664,7 @@ function cpuPlaysO() {
                             a1.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (c3.textContent === 'x') {
+                    } else if (c3.textContent === 'X') {
                         if (c2.textContent === 'o') {
                             b1.textContent = 'o';
                             makeAMove();
@@ -673,8 +673,8 @@ function cpuPlaysO() {
                             makeAMove();
                         }
                     }
-                } else if (c2.textContent === 'x') {
-                    if (a3.textContent === 'x') {
+                } else if (c2.textContent === 'X') {
+                    if (a3.textContent === 'X') {
                         if (c3.textContent === 'o') {
                             a1.textContent = 'o';
                             makeAMove();
@@ -682,12 +682,12 @@ function cpuPlaysO() {
                             b3.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (b3.textContent === 'x') {
+                    } else if (b3.textContent === 'X') {
                         a1.textContent = 'o';
                         makeAMove();
                     }
-                } else if (a3.textContent === 'x') {
-                    if (b3.textContent === 'x') {
+                } else if (a3.textContent === 'X') {
+                    if (b3.textContent === 'X') {
                         if (c3.textContent === 'o') {
                             a1.textContent = 'o';
                             makeAMove();
@@ -695,7 +695,7 @@ function cpuPlaysO() {
                             c3.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (c3.textContent === 'x') {
+                    } else if (c3.textContent === 'X') {
                         if (b1.textContent === 'o') {
                             b3.textContent = 'o';
                             makeAMove();
@@ -707,7 +707,7 @@ function cpuPlaysO() {
                             makeAMove();
                         }
                     }
-                } else if (b3.textContent === 'x') {
+                } else if (b3.textContent === 'X') {
                     if (c2.textContent === 'o') {
                         a2.textContent = 'o';
                         makeAMove();
@@ -716,9 +716,9 @@ function cpuPlaysO() {
                         makeAMove();
                     }
                 }
-            } else if (a2.textContent === 'x') {
-                if (c2.textContent === 'x') {
-                    if (a3.textContent === 'x') {
+            } else if (a2.textContent === 'X') {
+                if (c2.textContent === 'X') {
+                    if (a3.textContent === 'X') {
                         if (a1.textContent === 'o') {
                             c3.textContent = 'o';
                             makeAMove();
@@ -726,7 +726,7 @@ function cpuPlaysO() {
                             a1.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (b3.textContent === 'x') {
+                    } else if (b3.textContent === 'X') {
                         if (a3.textContent === 'o') {
                             c1.textContent = 'o';
                             makeAMove();
@@ -737,7 +737,7 @@ function cpuPlaysO() {
                             a1.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (c3.textContent === 'x') {
+                    } else if (c3.textContent === 'X') {
                         if (c1.textContent === 'o') {
                             a3.textContent = 'o';
                             makeAMove();
@@ -746,8 +746,8 @@ function cpuPlaysO() {
                             makeAMove();
                         }
                     }
-                } else if (a3.textContent === 'x') {
-                    if (b3.textContent === 'x') {
+                } else if (a3.textContent === 'X') {
+                    if (b3.textContent === 'X') {
                         if (a1.textContent === 'o') {
                             c3.textContent = 'o';
                             makeAMove();
@@ -755,7 +755,7 @@ function cpuPlaysO() {
                             a1.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (c3.textContent === 'x') {
+                    } else if (c3.textContent === 'X') {
                         if (b3.textContent === 'o') {
                             b1.textContent = 'o';
                             makeAMove();
@@ -764,7 +764,7 @@ function cpuPlaysO() {
                             makeAMove();
                         }
                     }
-                } else if (b3.textContent === 'x') {
+                } else if (b3.textContent === 'X') {
                     if (a3.textContent === 'o') {
                         c1.textContent = 'o';
                         makeAMove();
@@ -773,9 +773,9 @@ function cpuPlaysO() {
                         makeAMove();
                     }
                 }
-            } else if (c2.textContent === 'x') {
-                if (a3.textContent === 'x') {
-                    if (b3.textContent === 'x') {
+            } else if (c2.textContent === 'X') {
+                if (a3.textContent === 'X') {
+                    if (b3.textContent === 'X') {
                         if (c3.textContent === 'o') {
                             a1.textContent = 'o';
                             makeAMove();
@@ -783,7 +783,7 @@ function cpuPlaysO() {
                             c3.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (c3.textContent === 'x') {
+                    } else if (c3.textContent === 'X') {
                         if (b3.textContent === 'o') {
                             b1.textContent = 'o';
                             makeAMove();
@@ -792,7 +792,7 @@ function cpuPlaysO() {
                             makeAMove();
                         }
                     }
-                } else if (b3.textContent === 'x') {
+                } else if (b3.textContent === 'X') {
                     if (c1.textContent === 'o') {
                         a3.textContent = 'o';
                         makeAMove();
@@ -804,42 +804,42 @@ function cpuPlaysO() {
             }
         }
     } else if (turnCounter === 8) {
-        if (b2.textContent === 'x') {
-            if ((b1.textContent === 'x') && (b3.textContent === 'o')) {
-                if (c1.textContent === 'x') {
-                    if (a2.textContent === 'x') {
+        if (b2.textContent === 'X') {
+            if ((b1.textContent === 'X') && (b3.textContent === 'o')) {
+                if (c1.textContent === 'X') {
+                    if (a2.textContent === 'X') {
                         c3.textContent = 'o';
                         makeAMove();
                     } else if (a2.textContent === '') {
                         a2.textContent = 'o';
                         makeAMove();
                     }
-                } else if (a2.textContent === 'x') {
-                    if (c1.textContent === 'x') {
+                } else if (a2.textContent === 'X') {
+                    if (c1.textContent === 'X') {
                         a3.textContent = 'o';
                         makeAMove();
                     } else if (c1.textContent === '') {
                         c1.textContent = 'o';
                         makeAMove();
                     }
-                } else if (c2.textContent === 'x') {
-                    if (a3.textContent === 'x') {
+                } else if (c2.textContent === 'X') {
+                    if (a3.textContent === 'X') {
                         c1.textContent = 'o';
                         makeAMove();
                     } else if (a3.textContent === '') {
                         a3.textContent = 'o';
                         makeAMove();
                     }
-                } else if (a3.textContent === 'x') {
-                    if (a2.textContent === 'x') {
+                } else if (a3.textContent === 'X') {
+                    if (a2.textContent === 'X') {
                         c2.textContent = 'o';
                         makeAMove();
                     } else if (a2.textContent === '') {
                         a2.textContent = 'o';
                         makeAMove();
                     }
-                } else if (c3.textContent === 'x') {
-                    if (a2.textContent === 'x') {
+                } else if (c3.textContent === 'X') {
+                    if (a2.textContent === 'X') {
                         c2.textContent = 'o';
                         makeAMove();
                     } else if (a2.textContent === '') {
@@ -847,17 +847,17 @@ function cpuPlaysO() {
                         makeAMove();
                     }  
                 }
-            } else if ((c1.textContent === 'x') && (a3.textContent === 'o')) {
-                if (a2.textContent === 'x') {
-                    if (b1.textContent === 'x') {
+            } else if ((c1.textContent === 'X') && (a3.textContent === 'o')) {
+                if (a2.textContent === 'X') {
+                    if (b1.textContent === 'X') {
                         b3.textContent = 'o';
                         makeAMove();
                     } else if (b1.textContent === '') {
                         b1.textContent = 'o';
                         makeAMove();
                     }
-                } else if (b3.textContent === 'x') {
-                    if (a2.textContent === 'x') {
+                } else if (b3.textContent === 'X') {
+                    if (a2.textContent === 'X') {
                         c2.textContent = 'o';
                         makeAMove();
                     } else if (a2.textContent === '') {
@@ -865,25 +865,25 @@ function cpuPlaysO() {
                         makeAMove();
                     }
                 }
-            } else if ((a2.textContent === 'x') && (c2.textContent === 'o')) {
-                if (a3.textContent === 'x') {
-                    if (c3.textContent === 'x') {
+            } else if ((a2.textContent === 'X') && (c2.textContent === 'o')) {
+                if (a3.textContent === 'X') {
+                    if (c3.textContent === 'X') {
                         b1.textContent = 'o';
                         makeAMove();
                     } else if (c3.textContent === '') {
                         c3.textContent = 'o';
                         makeAMove();
                     }
-                } else if (b3.textContent === 'x') {
-                    if (c1.textContent === 'x') {
+                } else if (b3.textContent === 'X') {
+                    if (c1.textContent === 'X') {
                         a3.textContent = 'o';
                         makeAMove();
                     } else if (c1.textContent === '') {
                         c1.textContent = 'o';
                         makeAMove();
                     }
-                } else if (c3.textContent === 'x') {
-                    if (b1.textContent === 'x') {
+                } else if (c3.textContent === 'X') {
+                    if (b1.textContent === 'X') {
                         b3.textContent = 'o';
                         makeAMove();
                     } else if (b1.textContent === '') {
@@ -891,9 +891,9 @@ function cpuPlaysO() {
                         makeAMove();
                     }
                 }
-            } else if ((c2.textContent === 'x') && (a2.textContent === 'o')) {
-                if (a3.textContent === 'x') {
-                    if (b1.textContent === 'x') {
+            } else if ((c2.textContent === 'X') && (a2.textContent === 'o')) {
+                if (a3.textContent === 'X') {
+                    if (b1.textContent === 'X') {
                         b3.textContent = 'o';
                         makeAMove();
                     } else if (b1.textContent === '') {
@@ -903,26 +903,26 @@ function cpuPlaysO() {
                 }
             }
         } else if (b2.textContent === 'o') {
-            if (a1.textContent === 'x') {
-                if (b1.textContent === 'x') {
-                    if (c2.textContent === 'x') {
-                        if (a3.textContent === 'x') {
+            if (a1.textContent === 'X') {
+                if (b1.textContent === 'X') {
+                    if (c2.textContent === 'X') {
+                        if (a3.textContent === 'X') {
                             c3.textContent = 'o';
                             makeAMove();
-                        } else if (b3.textContent === 'x') {
+                        } else if (b3.textContent === 'X') {
                             a3.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (a3.textContent === 'x') {
+                    } else if (a3.textContent === 'X') {
                         c2.textContent = 'o';
                             makeAMove();
                     }
-                } else if (c1.textContent === 'x') {
-                    if (a2.textContent === 'x') {
-                        if (c2.textContent === 'x') {
+                } else if (c1.textContent === 'X') {
+                    if (a2.textContent === 'X') {
+                        if (c2.textContent === 'X') {
                             b3.textContent = 'o';
                             makeAMove();
-                        } else if (b3.textContent === 'x') {
+                        } else if (b3.textContent === 'X') {
                             if (a3.textContent === 'o') {
                                 c3.textContent = 'o';
                                 makeAMove();
@@ -930,7 +930,7 @@ function cpuPlaysO() {
                                 a3.textContent = 'o';
                                 makeAMove();
                             }
-                        } else if (c3.textContent === 'x') {
+                        } else if (c3.textContent === 'X') {
                             if (b1.textContent === 'o') {
                                 b3.textContent = 'o';
                                 makeAMove();
@@ -939,11 +939,11 @@ function cpuPlaysO() {
                                 makeAMove();
                             }
                         }
-                    } else if (c2.textContent === 'x') {
-                        if (a3.textContent === 'x') {
+                    } else if (c2.textContent === 'X') {
+                        if (a3.textContent === 'X') {
                             b3.textContent = 'o';
                             makeAMove();
-                        } else if (b3.textContent === 'x') {
+                        } else if (b3.textContent === 'X') {
                             if (c3.textContent === 'o') {
                                 a3.textContent = 'o';
                                 makeAMove();
@@ -952,7 +952,7 @@ function cpuPlaysO() {
                                 makeAMove();
                             }
                         }
-                    } else if (a3.textContent === 'x') {
+                    } else if (a3.textContent === 'X') {
                         if (a2.textContent === 'o') {
                             c2.textContent = 'o';
                             makeAMove();
@@ -960,7 +960,7 @@ function cpuPlaysO() {
                             a2.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (b3.textContent === 'x') {
+                    } else if (b3.textContent === 'X') {
                         if (c2.textContent === 'o') {
                             a2.textContent = 'o';
                             makeAMove();
@@ -969,7 +969,7 @@ function cpuPlaysO() {
                             makeAMove();
                         }
                     }
-                } else if (a2.textContent === 'x') {
+                } else if (a2.textContent === 'X') {
                     if (a3.textContent === 'o') {
                         c1.textContent = 'o';
                         makeAMove();
@@ -977,9 +977,9 @@ function cpuPlaysO() {
                         a3.textContent = 'o';
                         makeAMove();
                     }
-                } else if (c2.textContent === 'x') {
-                    if (a3.textContent === 'x') {
-                        if (b3.textContent === 'x') {
+                } else if (c2.textContent === 'X') {
+                    if (a3.textContent === 'X') {
+                        if (b3.textContent === 'X') {
                             if ((a2.textContent === 'o') && (c3.textContent === '')) {
                                 c3.textContent = 'o';
                                 makeAMove();
@@ -990,7 +990,7 @@ function cpuPlaysO() {
                                 a2.textContent = 'o';
                                 makeAMove();
                             }
-                        } else if (c3.textContent === 'x') {
+                        } else if (c3.textContent === 'X') {
                             if (b3.textContent === 'o') {
                                 b1.textContent = 'o';
                                 makeAMove();
@@ -999,18 +999,18 @@ function cpuPlaysO() {
                                 makeAMove();
                             }
                         }
-                    } else if (b3.textContent === 'x') {
+                    } else if (b3.textContent === 'X') {
                         c1.textContent = 'o';
                         makeAMove();
                     }
                 }
-            } else if (b1.textContent === 'x') {
-                if (c1.textContent === 'x') {
-                    if (a2.textContent === 'x') {
-                        if (c2.textContent === 'x') {
+            } else if (b1.textContent === 'X') {
+                if (c1.textContent === 'X') {
+                    if (a2.textContent === 'X') {
+                        if (c2.textContent === 'X') {
                             b3.textContent = 'o';
                             makeAMove();
-                        } else if (c3.textContent === 'x') {
+                        } else if (c3.textContent === 'X') {
                             if (c2.textContent === '') {
                                 c2.textContent = 'o';
                                 makeAMove();
@@ -1022,7 +1022,7 @@ function cpuPlaysO() {
                                 makeAMove();
                             }
                         }
-                    } else if (a3.textContent === 'x') {
+                    } else if (a3.textContent === 'X') {
                         if (c2.textContent === 'o') {
                             a2.textContent = 'o';
                             makeAMove();
@@ -1030,16 +1030,16 @@ function cpuPlaysO() {
                             c2.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (b3.textContent === 'x') {
+                    } else if (b3.textContent === 'X') {
                         a2.textContent = 'o';
                         makeAMove();
                     }
-                } else if (a2.textContent === 'x') {
-                    if (c2.textContent === 'x') {
-                        if (a3.textContent === 'x') {
+                } else if (a2.textContent === 'X') {
+                    if (c2.textContent === 'X') {
+                        if (a3.textContent === 'X') {
                             c3.textContent = 'o';
                             makeAMove();
-                        } else if (c3.textContent === 'x') {
+                        } else if (c3.textContent === 'X') {
                             if (c1.textContent === 'o') {
                                 a3.textContent = 'o';
                                 makeAMove();
@@ -1048,11 +1048,11 @@ function cpuPlaysO() {
                                 makeAMove();
                             }
                         }
-                    } else if (a3.textContent === 'x') {
-                        if (b3.textContent === 'x') {
+                    } else if (a3.textContent === 'X') {
+                        if (b3.textContent === 'X') {
                             c3.textContent = 'o';
                             makeAMove();
-                        } else if (c3.textContent === 'x') {
+                        } else if (c3.textContent === 'X') {
                             if (c1.textContent === 'o') {
                                 b3.textContent = 'o';
                                 makeAMove();
@@ -1061,13 +1061,13 @@ function cpuPlaysO() {
                                 makeAMove();
                             }
                         }
-                    } else if (b3.textContent === 'x') {
+                    } else if (b3.textContent === 'X') {
                         c1.textContent = 'o';
                         makeAMove();
                     }
-                } else if (c2.textContent === 'x') {
-                    if (a3.textContent === 'x') {
-                        if (b3.textContent === 'x') {
+                } else if (c2.textContent === 'X') {
+                    if (a3.textContent === 'X') {
+                        if (b3.textContent === 'X') {
                             if (a1.textContent === 'o') {
                                 c3.textContent = 'o';
                                 makeAMove();
@@ -1075,7 +1075,7 @@ function cpuPlaysO() {
                                 a1.textContent = 'o';
                                 makeAMove();
                             }
-                        } else if (c3.textContent === 'x') {
+                        } else if (c3.textContent === 'X') {
                             if (b3.textContent === '') {
                                 b3.textContent = 'o';
                                 makeAMove();
@@ -1087,7 +1087,7 @@ function cpuPlaysO() {
                                 makeAMove();
                             }
                         }
-                    } else if (b3.textContent === 'x') {
+                    } else if (b3.textContent === 'X') {
                         if (c1.textContent === 'o') {
                             a3.textContent = 'o';
                             makeAMove();
@@ -1097,16 +1097,16 @@ function cpuPlaysO() {
                         }
                     }
                 }
-            } else if (c1.textContent === 'x') {
-                if (a2.textContent === 'x') {
-                    if (c2.textContent === 'x') {
+            } else if (c1.textContent === 'X') {
+                if (a2.textContent === 'X') {
+                    if (c2.textContent === 'X') {
                         a1.textContent = 'o';
                         makeAMove();
-                    } else if (a3.textContent === 'x') {
-                        if (b3.textContent === 'x') {
+                    } else if (a3.textContent === 'X') {
+                        if (b3.textContent === 'X') {
                             a1.textContent = 'o';
                             makeAMove();
-                        } else if (c3.textContent === 'x') {
+                        } else if (c3.textContent === 'X') {
                             if (b3.textContent === 'o') {
                                 b1.textContent = 'o';
                                 makeAMove();
@@ -1115,7 +1115,7 @@ function cpuPlaysO() {
                                 makeAMove();
                             }
                         }
-                    } else if (b3.textContent === 'x') {
+                    } else if (b3.textContent === 'X') {
                         if (a3.textContent === '') {
                             a3.textContent = 'o';
                             makeAMove();
@@ -1127,13 +1127,13 @@ function cpuPlaysO() {
                             makeAMove();
                         }
                     }
-                } else if (c2.textContent === 'x') {
+                } else if (c2.textContent === 'X') {
                     a1.textContent = 'o';
                     makeAMove();
                 }
-            } else if (a2.textContent === 'x') {
-                if (a3.textContent === 'x') {
-                    if (b3.textContent === 'x') {
+            } else if (a2.textContent === 'X') {
+                if (a3.textContent === 'X') {
+                    if (b3.textContent === 'X') {
                         if (a1.textContent === 'o') {
                             c3.textContent = 'o';
                             makeAMove();
@@ -1141,11 +1141,11 @@ function cpuPlaysO() {
                             a1.textContent = 'o';
                             makeAMove();
                         }
-                    } else if (c3.textContent === 'x') {
+                    } else if (c3.textContent === 'X') {
                         b1.textContent = 'o';
                         makeAMove();
                     }
-                } else if (b3.textContent === 'x') {
+                } else if (b3.textContent === 'X') {
                     c1.textContent = 'o';
                         makeAMove();
                 }
@@ -1154,13 +1154,13 @@ function cpuPlaysO() {
     };
 }
 
-// These functions set whether 'x' or 'o' will appear in the selected space and trigger the CPU's turn if 'VS CPU' is selected
+// These functions set whether 'X' or 'o' will appear in the selected space and trigger the CPU's turn if 'VS CPU' is selected
 function selectA1(event) {
     event.preventDefault();
 
     if (turnCounter === 1) {
         if (a1.textContent === '') {
-            a1.textContent = 'x';
+            a1.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 2) {
@@ -1170,7 +1170,7 @@ function selectA1(event) {
         }
     } else if (turnCounter === 3) {
         if (a1.textContent === '') {
-            a1.textContent = 'x';
+            a1.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 4) {
@@ -1180,7 +1180,7 @@ function selectA1(event) {
         }
     } else if (turnCounter === 5) {
         if (a1.textContent === '') {
-            a1.textContent = 'x';
+            a1.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 6) {
@@ -1190,7 +1190,7 @@ function selectA1(event) {
         }
     } else if (turnCounter === 7) {
         if (a1.textContent === '') {
-            a1.textContent = 'x';
+            a1.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 8) {
@@ -1200,7 +1200,7 @@ function selectA1(event) {
         }
     } else if (turnCounter === 9) {
         if (a1.textContent === '') {
-            a1.textContent = 'x';
+            a1.textContent = 'X';
             makeAMove();
         }
     };
@@ -1218,7 +1218,7 @@ function selectB1(event) {
 
     if (turnCounter === 1) {
         if (b1.textContent === '') {
-            b1.textContent = 'x';
+            b1.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 2) {
@@ -1228,7 +1228,7 @@ function selectB1(event) {
         }
     } else if (turnCounter === 3) {
         if (b1.textContent === '') {
-            b1.textContent = 'x';
+            b1.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 4) {
@@ -1238,7 +1238,7 @@ function selectB1(event) {
         }
     } else if (turnCounter === 5) {
         if (b1.textContent === '') {
-            b1.textContent = 'x';
+            b1.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 6) {
@@ -1248,7 +1248,7 @@ function selectB1(event) {
         }
     } else if (turnCounter === 7) {
         if (b1.textContent === '') {
-            b1.textContent = 'x';
+            b1.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 8) {
@@ -1258,7 +1258,7 @@ function selectB1(event) {
         }
     } else if (turnCounter === 9) {
         if (b1.textContent === '') {
-            b1.textContent = 'x';
+            b1.textContent = 'X';
             makeAMove();
         }
     };
@@ -1276,7 +1276,7 @@ function selectC1(event) {
 
     if (turnCounter === 1) {
         if (c1.textContent === '') {
-            c1.textContent = 'x';
+            c1.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 2) {
@@ -1286,7 +1286,7 @@ function selectC1(event) {
         }
     } else if (turnCounter === 3) {
         if (c1.textContent === '') {
-            c1.textContent = 'x';
+            c1.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 4) {
@@ -1296,7 +1296,7 @@ function selectC1(event) {
         }
     } else if (turnCounter === 5) {
         if (c1.textContent === '') {
-            c1.textContent = 'x';
+            c1.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 6) {
@@ -1306,7 +1306,7 @@ function selectC1(event) {
         }
     } else if (turnCounter === 7) {
         if (c1.textContent === '') {
-            c1.textContent = 'x';
+            c1.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 8) {
@@ -1316,7 +1316,7 @@ function selectC1(event) {
         }
     } else if (turnCounter === 9) {
         if (c1.textContent === '') {
-            c1.textContent = 'x';
+            c1.textContent = 'X';
             makeAMove();
         }
     };
@@ -1334,7 +1334,7 @@ function selectA2(event) {
 
     if (turnCounter === 1) {
         if (a2.textContent === '') {
-            a2.textContent = 'x';
+            a2.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 2) {
@@ -1344,7 +1344,7 @@ function selectA2(event) {
         }
     } else if (turnCounter === 3) {
         if (a2.textContent === '') {
-            a2.textContent = 'x';
+            a2.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 4) {
@@ -1354,7 +1354,7 @@ function selectA2(event) {
         }
     } else if (turnCounter === 5) {
         if (a2.textContent === '') {
-            a2.textContent = 'x';
+            a2.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 6) {
@@ -1364,7 +1364,7 @@ function selectA2(event) {
         }
     } else if (turnCounter === 7) {
         if (a2.textContent === '') {
-            a2.textContent = 'x';
+            a2.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 8) {
@@ -1374,7 +1374,7 @@ function selectA2(event) {
         }
     } else if (turnCounter === 9) {
         if (a2.textContent === '') {
-            a2.textContent = 'x';
+            a2.textContent = 'X';
             makeAMove();
         }
     };
@@ -1392,7 +1392,7 @@ function selectB2(event) {
 
     if (turnCounter === 1) {
         if (b2.textContent === '') {
-            b2.textContent = 'x';
+            b2.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 2) {
@@ -1402,7 +1402,7 @@ function selectB2(event) {
         }
     } else if (turnCounter === 3) {
         if (b2.textContent === '') {
-            b2.textContent = 'x';
+            b2.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 4) {
@@ -1412,7 +1412,7 @@ function selectB2(event) {
         }
     } else if (turnCounter === 5) {
         if (b2.textContent === '') {
-            b2.textContent = 'x';
+            b2.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 6) {
@@ -1422,7 +1422,7 @@ function selectB2(event) {
         }
     } else if (turnCounter === 7) {
         if (b2.textContent === '') {
-            b2.textContent = 'x';
+            b2.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 8) {
@@ -1432,7 +1432,7 @@ function selectB2(event) {
         }
     } else if (turnCounter === 9) {
         if (b2.textContent === '') {
-            b2.textContent = 'x';
+            b2.textContent = 'X';
             makeAMove();
         }
     };
@@ -1450,7 +1450,7 @@ function selectC2(event) {
 
     if (turnCounter === 1) {
         if (c2.textContent === '') {
-            c2.textContent = 'x';
+            c2.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 2) {
@@ -1460,7 +1460,7 @@ function selectC2(event) {
         }
     } else if (turnCounter === 3) {
         if (c2.textContent === '') {
-            c2.textContent = 'x';
+            c2.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 4) {
@@ -1470,7 +1470,7 @@ function selectC2(event) {
         }
     } else if (turnCounter === 5) {
         if (c2.textContent === '') {
-            c2.textContent = 'x';
+            c2.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 6) {
@@ -1480,7 +1480,7 @@ function selectC2(event) {
         }
     } else if (turnCounter === 7) {
         if (c2.textContent === '') {
-            c2.textContent = 'x';
+            c2.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 8) {
@@ -1490,7 +1490,7 @@ function selectC2(event) {
         }
     } else if (turnCounter === 9) {
         if (c2.textContent === '') {
-            c2.textContent = 'x';
+            c2.textContent = 'X';
             makeAMove();
         }
     };
@@ -1508,7 +1508,7 @@ function selectA3(event) {
 
     if (turnCounter === 1) {
         if (a3.textContent === '') {
-            a3.textContent = 'x';
+            a3.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 2) {
@@ -1518,7 +1518,7 @@ function selectA3(event) {
         }
     } else if (turnCounter === 3) {
         if (a3.textContent === '') {
-            a3.textContent = 'x';
+            a3.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 4) {
@@ -1528,7 +1528,7 @@ function selectA3(event) {
         }
     } else if (turnCounter === 5) {
         if (a3.textContent === '') {
-            a3.textContent = 'x';
+            a3.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 6) {
@@ -1538,7 +1538,7 @@ function selectA3(event) {
         }
     } else if (turnCounter === 7) {
         if (a3.textContent === '') {
-            a3.textContent = 'x';
+            a3.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 8) {
@@ -1548,7 +1548,7 @@ function selectA3(event) {
         }
     } else if (turnCounter === 9) {
         if (a3.textContent === '') {
-            a3.textContent = 'x';
+            a3.textContent = 'X';
             makeAMove();
         }
     };
@@ -1566,7 +1566,7 @@ function selectB3(event) {
 
     if (turnCounter === 1) {
         if (b3.textContent === '') {
-            b3.textContent = 'x';
+            b3.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 2) {
@@ -1576,7 +1576,7 @@ function selectB3(event) {
         }
     } else if (turnCounter === 3) {
         if (b3.textContent === '') {
-            b3.textContent = 'x';
+            b3.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 4) {
@@ -1586,7 +1586,7 @@ function selectB3(event) {
         }
     } else if (turnCounter === 5) {
         if (b3.textContent === '') {
-            b3.textContent = 'x';
+            b3.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 6) {
@@ -1596,7 +1596,7 @@ function selectB3(event) {
         }
     } else if (turnCounter === 7) {
         if (b3.textContent === '') {
-            b3.textContent = 'x';
+            b3.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 8) {
@@ -1606,7 +1606,7 @@ function selectB3(event) {
         }
     } else if (turnCounter === 9) {
         if (b3.textContent === '') {
-            b3.textContent = 'x';
+            b3.textContent = 'X';
             makeAMove();
         }
     };
@@ -1624,7 +1624,7 @@ function selectC3(event) {
 
     if (turnCounter === 1) {
         if (c3.textContent === '') {
-            c3.textContent = 'x';
+            c3.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 2) {
@@ -1634,7 +1634,7 @@ function selectC3(event) {
         }
     } else if (turnCounter === 3) {
         if (c3.textContent === '') {
-            c3.textContent = 'x';
+            c3.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 4) {
@@ -1644,7 +1644,7 @@ function selectC3(event) {
         }
     } else if (turnCounter === 5) {
         if (c3.textContent === '') {
-            c3.textContent = 'x';
+            c3.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 6) {
@@ -1654,7 +1654,7 @@ function selectC3(event) {
         }
     } else if (turnCounter === 7) {
         if (c3.textContent === '') {
-            c3.textContent = 'x';
+            c3.textContent = 'X';
             makeAMove();
         }
     } else if (turnCounter === 8) {
@@ -1664,7 +1664,7 @@ function selectC3(event) {
         }
     } else if (turnCounter === 9) {
         if (c3.textContent === '') {
-            c3.textContent = 'x';
+            c3.textContent = 'X';
             makeAMove();
         }
     };
