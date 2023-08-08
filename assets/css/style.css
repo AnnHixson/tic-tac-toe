@@ -8,6 +8,8 @@
 #b3,
 #c3 {
     font-size: 10vw;
+    max-height: 25vh;
+    max-width: 25vh;
 }
 
 #winner-display {
@@ -18,7 +20,3 @@
 #winner-display-text {
     background-color: #0dcaf0ab;
 }
-
-/* body {
-    max-height: 100%;
-} */
